@@ -1,3 +1,5 @@
+package tung.lab1;
+
 public class SimpleApplication {
 	private long[] a; 
 	private int nElems;
@@ -110,3 +112,4 @@ public class SimpleApplication {
 		System.out.println(minGap(array));
 	}
 }
+

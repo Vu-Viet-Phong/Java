@@ -1,30 +1,26 @@
-// lowArray.java
-// demonstrates array class with low-level interface
+package tung.lab1;
+
+// LowArray.java
+// Demonstrates array class with low-level interface
 // to run this program: C>java LowArrayApp
 ////////////////////////////////////////////////////////////////
 class LowArray {
 	private long[] a; // ref to array a
 	// --------------------------------------------------------------
-
-	public LowArray(int size) // constructor
-	{
+	public LowArray(int size) { // constructor
 		a = new long[size];
 	} // create array
-		// --------------------------------------------------------------
-
-	public void setElem(int index, long value) // set value
-	{
+	// --------------------------------------------------------------
+	public void setElem(int index, long value) { // set value
 		a[index] = value;
 	}
-
 	// --------------------------------------------------------------
-	public long getElem(int index) // get value
-	{
+	public long getElem(int index) { // get value
 		return a[index];
 	}
 	// --------------------------------------------------------------
 } // end class LowArray
-	////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
 
 class LowArrayApp {
 	public static void main(String[] args) {
@@ -45,30 +41,42 @@ class LowArrayApp {
 		arr.setElem(9, 33);
 		nElems = 10; // now 10 items in array
 
-		for (j = 0; j < nElems; j++) // display items
+		for (j = 0; j < nElems; j++) { // display items
 			System.out.print(arr.getElem(j) + " ");
+        }
 		System.out.println("");
 
 		int searchKey = 26; // search for data item
-		for (j = 0; j < nElems; j++) // for each element,
-			if (arr.getElem(j) == searchKey) // found item?
-				break;
-		if (j == nElems) // no
-			System.out.println("Can't find " + searchKey);
-		else // yes
-			System.out.println("Found " + searchKey);
 
-		// delete value 55
-		for (j = 0; j < nElems; j++) // look for it
-			if (arr.getElem(j) == 55)
+		for (j = 0; j < nElems; j++) { // for each element,
+			if (arr.getElem(j) == searchKey) { // found item?
 				break;
-		for (int k = j; k < nElems; k++) // higher ones down
+            }
+        }
+
+        if (j == nElems) { // no
+			System.out.println("Can't find " + searchKey);
+        } else { // yes
+			System.out.println("Found " + searchKey);
+        }
+
+		// Delete value 55
+		for (j = 0; j < nElems; j++) { // look for it
+			if (arr.getElem(j) == 55) {
+				break;
+            }
+        }
+
+        for (int k = j; k < nElems; k++) { // higher ones down
 			arr.setElem(k, arr.getElem(k + 1));
+        }
 		nElems--; // decrement size
 
-		for (j = 0; j < nElems; j++) // display items
+		for (j = 0; j < nElems; j++) { // display items
 			System.out.print(arr.getElem(j) + " ");
-		System.out.println("");
+        }
+        System.out.println("");
 	} // end main()
 } // end class LowArrayApp
-	////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+
