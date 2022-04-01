@@ -1,86 +1,98 @@
 package tung.lab01;
 
-// OrderedArray.java
 // Demonstrates ordered array class
-// to run this program: C>java OrderedApp
-////////////////////////////////////////////////////////////////
+
 class OrdArray {
-	private long[] a; // ref to array a
-	private int nElems; // number of data items
-	// -----------------------------------------------------------
-	public OrdArray(int max) { // constructor
-		a = new long[max]; // create array
+	private long[] arr; 
+	private int nElems; 
+
+	public OrdArray(int max) { 
+		arr = new long[max];
 		nElems = 0;
 	}
-	// -----------------------------------------------------------
+	
 	public int size() {
 		return nElems;
 	}
-	// -----------------------------------------------------------
-	public int find(long searchKey) {
-		int lowerBound = 0;
-		int upperBound = nElems - 1;
-		int curIn;
+	
+	/**
+	 * Binary search algorithm implements
+	 * @param searchKey being searched for
+	 * @return the location of the key, else return -1
+	 */
+	public int find(long searchKey) { // binary search
+		int left = 0;
+		int right = nElems - 1;
 
-		while (true) {
-			curIn = (lowerBound + upperBound) / 2;
+		while (left <= right) {
+			int mid = (left + right) / 2;
+		
+			if (arr[mid] == searchKey) {
+				return mid; 
+            } else if (arr[mid] < searchKey) {
+				left = mid + 1;  // it's in upper half
+            } else {
+				right = mid - 1; // it's in lower half
+            }
+		}
 
-			if (a[curIn] == searchKey) {
-				return curIn; // found it
-            } else if (lowerBound > upperBound) {
-				return nElems; // can't find it
-			} else { // divide range
-				if (a[curIn] < searchKey) {
-					lowerBound = curIn + 1; // it's in upper half
-                } else {
-					upperBound = curIn - 1; // it's in lower half
-                }
-			} // end else divide range
-		} // end while
-	} // end find()
-	// -----------------------------------------------------------
-	public void insert(long value) { // put element into array
-		int j;
+		return -1;
+	}
 
-		for (j = 0; j < nElems; j++) { // find where it goes
-			if (a[j] > value) { // (linear search)
+	/** Move elements down */
+    public void moveElemsDown(int position) {
+        for (int i = position; i < nElems; i++) {
+            arr[i] = arr[i + 1]; 
+        }
+        nElems--;
+    }
+
+	/** Move elements up */
+	public void moveElemsUp(int position) {
+        for (int i = nElems; i > position; i--) {
+            arr[i] = arr[i - 1]; 
+        }
+        nElems++;
+    }
+
+	/** Put an element into array */
+	public void insert(long value) {
+		int i;
+
+		for (i = 0; i < nElems; i++) { 
+			if (arr[i] > value) { // Find the position to insert
 				break;
             }
         }
-		
-        for (int k = nElems; k > j; k--) { // move bigger ones up
-			a[k] = a[k - 1];
-        }
-		a[j] = value; // insert it
-		nElems++; // increment size
-	} // end insert()
-	// -----------------------------------------------------------
+		moveElemsUp(i); // Move elements up
+		arr[i] = value; // insert it
+	}
+
 	public boolean delete(long value) {
 		int j = find(value);
 
-		if (j == nElems) { // can't find it
+		if (j == -1) { // can't find it
 			return false;
         } else { // found it
 			for (int k = j; k < nElems; k++) { // move bigger ones down
-				a[k] = a[k + 1];
+				arr[k] = arr[k + 1];
             }
             nElems--; // decrement size
-		
             return true;
 		}
 	} // end delete()
-	// -----------------------------------------------------------
-	public void display() { // displays array contents
-		for (int j = 0; j < nElems; j++) { // for each element,
-			System.out.print(a[j] + " "); // display it
+	
+	/** Displays array contents */
+    public void display() {
+		for (int j = 0; j < nElems; j++) {
+			System.out.print(arr[j] + " ");
         }
-
 		System.out.println("");
 	}
-	// -----------------------------------------------------------
-	// -----------------------------------------------------------
-	public long getValueAt(int index) { return a[index]; }
-    public void setValueAt(int index, long value) { a[index] = value; }
+	
+	
+	public long getValueAt(int index) { return arr[index]; }
+    public void setValueAt(int index, long value) { arr[index] = value; }
 
 	public static OrdArray merge(OrdArray a, OrdArray b) {
         int length = a.size() + b.size();
@@ -120,9 +132,9 @@ class OrdArray {
         }
 
         return c;
-    } // end merge()
-} // end class OrdArray
-////////////////////////////////////////////////////////////////
+    }
+}
+
 class OrderedApp {
 	public static void main(String[] args) {
         int maxSize = 100; // array size
@@ -148,6 +160,5 @@ class OrderedApp {
         OrdArray arr3 = OrdArray.merge(arr1, arr2);
         System.out.print("Array3: ");
         arr3.display(); // display items in array 3 after mergin
-    } // end main()
-} // end class OrderedApp
-
+    }
+}

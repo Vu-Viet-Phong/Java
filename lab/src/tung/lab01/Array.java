@@ -1,7 +1,7 @@
 package tung.lab01;
 
 /** Demonstrates Java arrays */
-public class Array {
+class Array {
     public static void main(String[] args) {
         long[] arr = new long[100];
         int j;

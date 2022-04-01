@@ -1,7 +1,7 @@
 package tung.lab01;
 
 /** Demonstrates array class with high-level interface */
-public class HighArray {
+class HighArray {
 	private long[] arr;
 	private int nElems;
 	
@@ -29,7 +29,7 @@ public class HighArray {
     /** Remove value from array */
     public boolean delete(long value) {
         int i;
-
+        
         for (i = 0; i < nElems; i++) {
             if (value == arr[i]) {
                 break;
@@ -55,11 +55,14 @@ public class HighArray {
             return arr[0];
         } else {
             long max = arr[0];
+
             for (int i = 1; i < nElems; i++) {
                 if (max < arr[i]) {
                     max = arr[i];   
                 }
+            
             }
+            
             return max;
         }
     }
@@ -75,7 +78,7 @@ public class HighArray {
             long temp = arr[i];
             for (int j = i + 1; j < nElems; j++) {
                 if (temp == arr[j]) { // Find duplicated items
-                    moveElems(j);
+                    moveElems(j); // Move elements down
                     System.out.println("Deleted " + temp);
                     j--; // check old position again because array change
                 }
@@ -83,7 +86,7 @@ public class HighArray {
         }
     }
 
-    /** Move higher elements down */
+    /** Move elements down */
     public void moveElems(int position) {
         for (int i = position; i < nElems; i++) {
             arr[i] = arr[i + 1]; 
