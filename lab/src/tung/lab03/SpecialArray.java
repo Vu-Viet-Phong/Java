@@ -1,3 +1,5 @@
+package tung.lab03;
+
 import java.util.Random;
 
 public class SpecialArray {

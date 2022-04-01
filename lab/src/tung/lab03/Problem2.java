@@ -1,3 +1,5 @@
+package tung.lab03;
+
 import java.util.Stack;
 
 public class Problem2 {

@@ -4,91 +4,84 @@ class Person {
     private String lastName;
     private String firstName;
     private int age;
-    //--------------------------------------------------------------
-    public Person(String last, String first, int a) { // constructor
+    
+    public Person(String last, String first, int a) {
         lastName = last;
         firstName = first;
         age = a;
     }
-    //--------------------------------------------------------------
+    
+    public String getLast() { return lastName; }
+
     public void displayPerson() { 
         System.out.print("   Last name: " + lastName);
         System.out.print(", First name: " + firstName);
         System.out.println(", Age: " + age);
     }
-    //--------------------------------------------------------------
-    public String getLast() { // get last name
-        return lastName; 
-    } // end class Person
 } 
 
-
 class ClassDataArray {
-    private Person[] a; // reference to array           
-    private int nElems; // number of data items
+    private Person[] a;           
+    private int nElems;
 
-    public ClassDataArray(int max) { // constructor
-        a = new Person[max]; // create the array
-        nElems = 0; // no items yet
+    public ClassDataArray(int max) {
+        a = new Person[max];
+        nElems = 0;
     }
-    //--------------------------------------------------------------
-    public Person find(String searchName) { // find specified value
+
+    public Person find(String searchName) {
         int j;
 
-        for (j = 0; j < nElems; j++) { // for each element,
-            if (a[j].getLast().equals(searchName)) { // found item?
-                break; // exit loop before end
-            }
+        for (j = 0; j < nElems; j++) { 
+            if (a[j].getLast().equals(searchName)) break; 
         }
-        
-        if (j == nElems) { // gone to end?
-            return null; // yes, can't find it
-        } else {
-            return a[j]; // no, found it
-        }
-    } // end find()
-    //--------------------------------------------------------------                                    // put person into array
+
+        if (j == nElems) return null;
+        else return a[j];
+    }
+
     public void insert(String last, String first, int age) {
         a[nElems] = new Person(last, first, age);
-        nElems++; // increment size
+        nElems++;
     }
-    //--------------------------------------------------------------
-    public boolean delete(String searchName) { // delete person from array
+
+    /**
+     * Delete person from array
+     * @param searchName
+     * @return 
+     */
+    public boolean delete(String searchName) {
         int j;
 
-        for (j = 0; j < nElems; j++) { // look for it
-            if(a[j].getLast().equals(searchName)) {
-                break;
-            }
+        for (j = 0; j < nElems; j++) {
+            if(a[j].getLast().equals(searchName)) break;
         }
 
-        if (j == nElems) { // can't find it
-            return false;
-        } else { // found it
-            for (int k = j; k < nElems; k++) { // shift down
+        if (j == nElems) return false;
+        else {
+            for (int k = j; k < nElems; k++) { 
                 a[k] = a[k+1];
             }
-            nElems--; // decrement size
+            nElems--;
             
             return true;
         }
-    } // end delete()
-    //--------------------------------------------------------------
-    public void displayA() { // displays array contents
-        for (int j = 0; j < nElems; j++) { // for each element,
+    }
+
+    /** Displays array contents */
+    public void displayA() {
+        for (int j = 0; j < nElems; j++) {
             a[j].displayPerson(); // display it
         }
-    }
-    //--------------------------------------------------------------
-} // end class ClassDataArray
+    } 
+}
 
 class ClassDataApp {
     public static void main(String[] args) {
-        int maxSize = 100; // array size
-        ClassDataArray arr; // reference to array
+        int maxSize = 100;
+        ClassDataArray arr = new ClassDataArray(maxSize);
 
-        arr = new ClassDataArray(maxSize); // create the array
-        // insert 10 items
+        /** Insert 10 items */
         arr.insert("Evans", "Patty", 24);
         arr.insert("Smith", "Lorraine", 37);
         arr.insert("Yee", "Tom", 43);
@@ -99,23 +92,27 @@ class ClassDataApp {
         arr.insert("Lamarque", "Henry", 54);
         arr.insert("Vang", "Minh", 22);
         arr.insert("Creswell", "Lucinda", 18);
-        arr.displayA(); // display items
 
-        String searchKey = "Stimson"; // search for item
-        Person found;
+        /** Display items */
+        arr.displayA();
 
-        found = arr.find(searchKey);
+        /** Search for item */
+        String searchKey = "Stimson";
+        Person found = arr.find(searchKey);
+
         if (found != null) {
             System.out.print("Found ");
             found.displayPerson();
-        } else {
-            System.out.println("Can't find " + searchKey);
-        }
-
+        } else System.out.println("Can't find " + searchKey);
+        
         System.out.println("Deleting Smith, Yee, and Creswell");
-        arr.delete("Smith"); // delete 3 items
+
+        /** Delete 3 items */
+        arr.delete("Smith");
         arr.delete("Yee");
         arr.delete("Creswell");
-        arr.displayA(); // display items again
-    }  // end main()
-}  // end class ClassDataApp
+        
+        /** Display items again */
+        arr.displayA();
+    }
+}

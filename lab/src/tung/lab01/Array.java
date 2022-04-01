@@ -27,9 +27,7 @@ public class Array {
 
         searchKey = 66;
         for (j = 0; j < nElems; j++) {
-            if(arr[j] == searchKey) {
-                break;
-            }
+            if(arr[j] == searchKey) break;
         }
 
         if (j == nElems) {
@@ -40,9 +38,7 @@ public class Array {
 
         searchKey = 55;             
         for (j = 0; j < nElems; j++) {      
-            if (arr[j] == searchKey) {
-                break;
-            }
+            if (arr[j] == searchKey) break;
         }
 
         for (int k = j; k < nElems; k++) {

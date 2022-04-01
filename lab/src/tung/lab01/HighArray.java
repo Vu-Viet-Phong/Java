@@ -1,149 +1,157 @@
 package tung.lab01;
 
-// HighArray.java
-// Demonstrates array class with high-level interface
-// to run this program: C>java HighArrayApp
-////////////////////////////////////////////////////////////////
-class HighArray {
-	private long[] a; // ref to array a
-	private int nElems; // number of data items
-	// -----------------------------------------------------------
-	public HighArray(int max) { // constructor
-		a = new long[max]; // create the array
-		nElems = 0; // no items yet
-	}
-	// -----------------------------------------------------------
-	public boolean find(long searchKey) { // find specified value
-		int j;
+public class HighArray {
+	private long[] arr;
+	private int nElems;
 	
-        for (j = 0; j < nElems; j++) { // for each element,
-			if (a[j] == searchKey) { // found item?
-				break; // exit loop before end
-            }
-        }
-		
-        if (j == nElems) { // gone to end?
-			return false; // yes, can't find it
-        } else {
-			return true; // no, found it
-        }
-	} // end find()
-	// -----------------------------------------------------------
-	public void insert(long value) { // put element into array
-		a[nElems] = value; // insert it
-		nElems++; // increment size
+	public HighArray(int max) {
+		arr = new long[max];
+		nElems = 0;
 	}
-	// -----------------------------------------------------------
-	public boolean delete(long value) {
-		int j;
 
-		for (j = 0; j < nElems; j++) { // look for it
-			if (value == a[j]) {
-				break;
+    /** Find specified value */
+	public boolean find(long searchKey) {
+        for (int i = 0; i < nElems; i++) { 
+			if (arr[i] == searchKey) {
+                return true;
             }
         }
-		
-        if (j == nElems) { // can't find it
-			return false;
-        } else { // found it
-			for (int k = j; k < nElems; k++) { // move higher ones down
-				a[k] = a[k + 1];
+        return false;
+	}
+	
+    /** Put an element into array */
+	public void insert(long value) {
+		arr[nElems] = value;
+		nElems++;
+	}
+
+    /** Remove value from array */
+    public boolean delete(long value) {
+        int i;
+
+        for (i = 0; i < nElems; i++) {
+            if (value == arr[i]) {
+                break;
             }
-			nElems--; // decrement size
-			
+        }
+
+        if (i == nElems) { // can’t find it
+            return false;
+        } else {
+            moveElems(i);
             return true;
-		}
-	} // end delete()
-	// -----------------------------------------------------------
-	public void display() { // displays array contents
-		for (int j = 0; j < nElems; j++) { // for each element,
-			System.out.print(a[j] + " "); // display it
         }
-
-		System.out.println("");
-	}
-	// -----------------------------------------------------------
+    }
+	
+    /**
+     * Find the value of the highest key in the array
+     * @return the highest value in array
+     */
 	public long getMax() {
-        if (nElems == 0) {
+        if (nElems <= 0) {
             return -1;
+        } else if (nElems == 1) {
+            return arr[0];
         } else {
-            long max = a[0];
-
-            for (int i = 0; i < nElems; i++) {
-                if (max < a[i]) {
-                    max = a[i];   
+            long max = arr[0];
+            for (int i = 1; i < nElems; i++) {
+                if (max < arr[i]) {
+                    max = arr[i];   
                 }
             }
-		
             return max;
         }
-    } // end getMax()
+    }
 
+    /** Delete the value of the highest key in the array */
     public void removeMax() {
         delete(getMax());
-    } // end removeMax() 
-	
-	public void noDups() {
-        // This version shrinks the array as it goes along
-        long value;
+    }
 
-        for (int i = 0; i < nElems; i++) {
-            value = a[i]; // Choose initial value to start
-            
-			for (int j = i + 1; j < nElems; j++) {
-                if (a[j] == value) { 		// Find duplicated items
-                    for (int k = j; k < nElems; k++) {
-                        a[k] = a[k + 1]; 	// Delete value at position j
-                    }
-
-                    nElems--; // Keep tracking of real value in array
-                    j--;
-                    System.out.println("Deleted " + value);
+    /** Remove all duplicates from the array */
+    public void noDups() {
+        for(int i = 0; i < nElems; i++) {
+            long temp = arr[i];
+            for (int j = i + 1; j < nElems; j++) {
+                if (temp == arr[j]) { // Find duplicated items
+                    moveElems(j);
+                    System.out.println("Deleted " + temp);
+                    j--; // check old position again because array change
                 }
             }
         }
-    } // end noDups()
-} // end class HighArray
-////////////////////////////////////////////////////////////////
-class HighArrayApp {
-	public static void main(String[] args) {
+    }
 
-        int maxSize = 100; // array size
-        HighArray arr; // reference to array
-        arr = new HighArray(maxSize); // create the array
-        arr.insert(77); // insert 10 items
+    /** Move higher elements down */
+    public void moveElems(int position) {
+        for (int i = position; i < nElems; i++) {
+            arr[i] = arr[i + 1]; 
+        }
+        nElems--;
+    }
+
+    /** Displays array contents */
+    public void display() {
+		for (int j = 0; j < nElems; j++) {
+			System.out.print(arr[j] + " ");
+        }
+		System.out.println("");
+	}
+
+    public static void main(String[] args) {
+        int maxSize = 100;
+        HighArray arr = new HighArray(maxSize);  
+
+        /* Insert 10 items */
+        System.out.println("\nInsert 10 items");
+        arr.insert(77);
         arr.insert(99);
-        arr.insert(44);
+        arr.insert(44); 
         arr.insert(55);
         arr.insert(22);
         arr.insert(88);
         arr.insert(11);
-        arr.insert(11);
         arr.insert(00);
         arr.insert(66);
-        arr.insert(66);
-        arr.insert(66);
         arr.insert(33);
-        arr.insert(33);
-        arr.insert(33);
-        arr.display(); // display items
-        int searchKey = 35; // search for item
+        arr.display();
+    
+        /* Search for item */
+        int searchKey = 35;
+        System.out.println("\nSearch for item");
         if (arr.find(searchKey)) {
             System.out.println("Found " + searchKey);
         } else {
-            System.out.println("Can’t find " + searchKey);
+            System.out.println("Can not find " + searchKey);
         }
-        arr.delete(00); // delete 3 items
-        arr.delete(55);
-        arr.delete(99);
-        arr.display(); // display items again
 
-        System.out.println("Max value: " + arr.getMax()); // Show max value
-
-        arr.removeMax();
+        /* Delete items */
+        System.out.println("\nDelete items");
+        System.out.println("Deleted 00");
+        arr.delete(00);
         arr.display();
+        System.out.println("Deleted 55");
+        arr.delete(55);
+        arr.display();
+        System.out.println("Deleted 90");
+        arr.delete(88);
+        arr.display();
+
+        /* Show the highest value in the array */
+        System.out.println("\nMax value: " + arr.getMax());
+
+        /* Remove the highest value in the array */
+        System.out.println("\nRemove the highest value in the array");
+        arr.removeMax(); 
+        arr.display();
+
+        System.out.println("\nInsert 2 items");
+        arr.insert(77);
+        arr.insert(77);
+        arr.display();
+        
+        System.out.println("\nRemove all duplicates from the array");
         arr.noDups();
         arr.display();
-    } // end main()
-} // end class HighArrayApp
-
+    }
+}
