@@ -1,9 +1,9 @@
 package tung.lab01;
 
+/** Demonstrates Java arrays */
 public class Array {
     public static void main(String[] args) {
-        long[] arr;
-        arr = new long[100];
+        long[] arr = new long[100];
         int j;
         int nElems = 0;
         long searchKey;
@@ -20,14 +20,18 @@ public class Array {
         arr[9] = 33;
         nElems = 10;
 
+        /* Display items */
         for (j = 0; j < nElems; j++) {
             System.out.print(arr[j] + " ");
         }
         System.out.println("");
 
+        /* Search for data item */
         searchKey = 66;
         for (j = 0; j < nElems; j++) {
-            if(arr[j] == searchKey) break;
+            if(arr[j] == searchKey) {
+                break;
+            }
         }
 
         if (j == nElems) {
@@ -36,9 +40,12 @@ public class Array {
             System.out.println("Found " + searchKey);
         }
 
+        /* Delete value 55 */
         searchKey = 55;             
         for (j = 0; j < nElems; j++) {      
-            if (arr[j] == searchKey) break;
+            if(arr[j] == searchKey) {
+                break;
+            }
         }
 
         for (int k = j; k < nElems; k++) {
@@ -46,6 +53,7 @@ public class Array {
         }
         nElems--;
 
+        /* Display items */
         for(j = 0; j < nElems; j++) {
             System.out.print( arr[j] + " ");
         }

@@ -18,7 +18,7 @@ class LowArray {
 }
 class LowArrayApp {
 	public static void main(String[] args) {
-		LowArray arr = new LowArray(100); // create LowArray object
+		LowArray arr = new LowArray(100);
 		int nElems = 0;
 		int j;
 
@@ -56,8 +56,9 @@ class LowArrayApp {
         }
 
 		/* Delete value 55 */
+		searchKey = 55; 
 		for (j = 0; j < nElems; j++) {
-			if (arr.getElem(j) == 55) {
+			if (arr.getElem(j) == searchKey) {
 				break;
             }
         }
