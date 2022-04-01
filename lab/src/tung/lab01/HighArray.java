@@ -1,5 +1,6 @@
 package tung.lab01;
 
+/** Demonstrates array class with high-level interface */
 public class HighArray {
 	private long[] arr;
 	private int nElems;
@@ -97,7 +98,9 @@ public class HighArray {
         }
 		System.out.println("");
 	}
+}
 
+class HighArrayApp {
     public static void main(String[] args) {
         int maxSize = 100;
         HighArray arr = new HighArray(maxSize);  
@@ -127,14 +130,9 @@ public class HighArray {
 
         /* Delete items */
         System.out.println("\nDelete items");
-        System.out.println("Deleted 00");
         arr.delete(00);
-        arr.display();
-        System.out.println("Deleted 55");
         arr.delete(55);
-        arr.display();
-        System.out.println("Deleted 90");
-        arr.delete(88);
+        arr.delete(90);
         arr.display();
 
         /* Show the highest value in the array */
