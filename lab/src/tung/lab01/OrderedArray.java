@@ -69,27 +69,15 @@ class OrdArray {
 	}
 
 	public boolean delete(long value) {
-		int j = find(value);
+		int position = find(value);
 
-		if (j == -1) { // can't find it
+		if (position == -1) { // can't find it
 			return false;
         } else { // found it
-			for (int k = j; k < nElems; k++) { // move bigger ones down
-				arr[k] = arr[k + 1];
-            }
-            nElems--; // decrement size
+			moveElemsDown(position);
             return true;
 		}
-	} // end delete()
-	
-	/** Displays array contents */
-    public void display() {
-		for (int j = 0; j < nElems; j++) {
-			System.out.print(arr[j] + " ");
-        }
-		System.out.println("");
 	}
-	
 	
 	public long getValueAt(int index) { return arr[index]; }
     public void setValueAt(int index, long value) { arr[index] = value; }
@@ -133,11 +121,52 @@ class OrdArray {
 
         return c;
     }
+
+    /** Displays array contents */
+    public void display() {
+		for (int j = 0; j < nElems; j++) {
+			System.out.print(arr[j] + " ");
+        }
+		System.out.println("");
+	}
 }
 
 class OrderedApp {
 	public static void main(String[] args) {
-        int maxSize = 100; // array size
+        int maxSize = 100;
+        OrdArray arr = new OrdArray(maxSize); 
+
+        /* Insert 10 items */
+        arr.insert(77);
+        arr.insert(99);
+        arr.insert(44);
+        arr.insert(55);
+        arr.insert(22);
+        arr.insert(88);
+        arr.insert(11);
+        arr.insert(00);
+        arr.insert(66);
+        arr.insert(33);
+        arr.display(); // display arr
+
+        /* Search for item */
+        int searchKey = 55;
+
+        if (arr.find(searchKey) != arr.size()) {
+            System.out.println("Found " + searchKey);
+        } else {
+            System.out.println("Can not find " + searchKey);
+        }
+
+        arr.display(); // display items
+
+        /* Delete items */
+        arr.delete(00);
+        arr.delete(55);
+        arr.delete(99);
+        arr.display(); // display items
+
+
         long random = 0;
 
         OrdArray arr1 = new OrdArray(maxSize); // create the array 1

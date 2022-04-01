@@ -17,6 +17,7 @@ class HighArray {
                 return true;
             }
         }
+        
         return false;
 	}
 	
@@ -26,12 +27,20 @@ class HighArray {
 		nElems++;
 	}
 
+    /** Move elements down */
+    public void moveElems(int position) {
+        for (int i = position; i < nElems; i++) {
+            arr[i] = arr[i + 1]; 
+        }
+        nElems--;
+    }
+
     /** Remove value from array */
     public boolean delete(long value) {
         int i;
         
         for (i = 0; i < nElems; i++) {
-            if (value == arr[i]) {
+            if (arr[i] == value) { // linear search
                 break;
             }
         }
@@ -44,10 +53,7 @@ class HighArray {
         }
     }
 	
-    /**
-     * Find the value of the highest key in the array
-     * @return the highest value in array
-     */
+    /** Find the value of the highest key in the array */
 	public long getMax() {
         if (nElems <= 0) {
             return -1;
@@ -76,6 +82,7 @@ class HighArray {
     public void noDups() {
         for(int i = 0; i < nElems; i++) {
             long temp = arr[i];
+            
             for (int j = i + 1; j < nElems; j++) {
                 if (temp == arr[j]) { // Find duplicated items
                     moveElems(j); // Move elements down
@@ -84,14 +91,6 @@ class HighArray {
                 }
             }
         }
-    }
-
-    /** Move elements down */
-    public void moveElems(int position) {
-        for (int i = position; i < nElems; i++) {
-            arr[i] = arr[i + 1]; 
-        }
-        nElems--;
     }
 
     /** Displays array contents */
@@ -124,6 +123,7 @@ class HighArrayApp {
     
         /* Search for item */
         int searchKey = 35;
+
         System.out.println("\nSearch for item");
         if (arr.find(searchKey)) {
             System.out.println("Found " + searchKey);
