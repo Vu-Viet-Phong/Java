@@ -1,7 +1,6 @@
 package tung.lab01;
 
 // Demonstrates ordered array class
-
 class OrdArray {
 	private long[] arr; 
 	private int nElems; 
@@ -66,7 +65,7 @@ class OrdArray {
         }
 
 		moveElemsUp(i); // Move elements up
-		arr[i] = value; // insert it
+		arr[i] = value; // Insert it
 	}
 
 	public boolean delete(long value) {
@@ -80,6 +79,12 @@ class OrdArray {
 		}
 	}
 
+    /**
+     * Merge two ordered source arrays into an ordered destination array
+     * @param arr1 first array
+     * @param arr2 second array
+     * @return destination array
+     */
     public static OrdArray merge(OrdArray arr1, OrdArray arr2) {
         int maxSize = arr1.size() + arr2.size();
         OrdArray newArr = new OrdArray(maxSize);
