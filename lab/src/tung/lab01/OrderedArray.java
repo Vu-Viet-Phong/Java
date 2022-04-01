@@ -64,6 +64,7 @@ class OrdArray {
 				break;
             }
         }
+
 		moveElemsUp(i); // Move elements up
 		arr[i] = value; // insert it
 	}
@@ -78,48 +79,20 @@ class OrdArray {
             return true;
 		}
 	}
-	
-	public long getValueAt(int index) { return arr[index]; }
-    public void setValueAt(int index, long value) { arr[index] = value; }
 
-	public static OrdArray merge(OrdArray a, OrdArray b) {
-        int length = a.size() + b.size();
-        int i = 0, j = 0, k = 0;
-		
-		// Create new array with sum of length of old 2 ones
-		OrdArray c = new OrdArray(length);
+    public static OrdArray merge(OrdArray arr1, OrdArray arr2) {
+        int maxSize = arr1.size() + arr2.size();
+        OrdArray newArr = new OrdArray(maxSize);
 
-		// While the value are not reach the end of any array yet!
-		while (j < a.size() && k < b.size()) { 
-			// Choose in which the value is suitablie in this incrementing array
-            if (a.getValueAt(j) <= b.getValueAt(k)) { 
-				// Set the value for new array with smaller value
-                c.setValueAt(i, a.getValueAt(j)); 
-                j++; // Increse j to consider the next value
-            } else {
-                c.setValueAt(i, b.getValueAt(k)); // If larger, set another one
-                k++;
-            }
-
-            c.nElems++;
-            i++;
+        for (int i = 0; i < arr1.size(); i++) {
+            newArr.insert(arr1.arr[i]);
         }
 
-        while (j < a.size()) {
-            c.setValueAt(i, a.getValueAt(j));
-            c.nElems++;
-            i++;
-            j++;
+        for (int i = 0; i < arr2.size(); i++) {
+            newArr.insert(arr2.arr[i]);
         }
 
-        while (k < b.size()) {
-            c.setValueAt(i, b.getValueAt(k));
-            c.nElems++;
-            i++;
-            k++;
-        }
-
-        return c;
+        return newArr;
     }
 
     /** Displays array contents */
@@ -171,10 +144,12 @@ class OrderedApp {
 
         OrdArray arr1 = new OrdArray(maxSize); // create the array 1
         OrdArray arr2 = new OrdArray(maxSize); // create the array 2
+
         for (int i = 0; i < 10; i++) {
             random = (long) (Math.random() * 200);
             arr1.insert(random); // Insert 45 random values
         }
+        
         System.out.print("Array1: ");
         arr1.display(); // display items again in array 1
 
@@ -186,8 +161,9 @@ class OrderedApp {
         System.out.print("Array2: ");
         arr2.display(); // display items again in array 2
 
+        
         OrdArray arr3 = OrdArray.merge(arr1, arr2);
         System.out.print("Array3: ");
-        arr3.display(); // display items in array 3 after mergin
+        arr3.display(); // display items in array 3 after mergin */
     }
 }
