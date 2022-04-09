@@ -29,8 +29,9 @@ public class MyStack {
     public void push(int value) {
         if (isFull()) {
             System.out.print("Can't push, stack is full.");
+        } else {
+            stackArray[++top] = value;
         }
-        stackArray[++top] = value;
     }
 
     /**
@@ -42,8 +43,9 @@ public class MyStack {
         if (isEmpty()) {
             System.out.println("Can't pop, stack is empty.");
             return -1;
+        } else {
+            return stackArray[top--];
         }
-        return stackArray[top--];
     }
 
     /**
@@ -55,8 +57,10 @@ public class MyStack {
         if (isEmpty()) {
             System.out.println("Can't peek, stack is empty");
             return -1;
+        } else {
+            return stackArray[top];
         }
-        return stackArray[top];
+        
     }
 
     /**
@@ -92,7 +96,7 @@ public class MyStack {
      *
      * @return size of stack
      */
-    public int size() {
+    public int getSize() {
         return top + 1;
     }
 

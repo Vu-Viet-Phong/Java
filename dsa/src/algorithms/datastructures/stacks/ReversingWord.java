@@ -16,18 +16,15 @@ public class ReversingWord {
 
     /* Reverse the string */
     public String doReverser() {
-        int wordSize = word.length();
-        MyStack myStack = new MyStack(wordSize);
+        MyStack myStack = new MyStack(word.length());
 
-        for (int idx = 0; idx < wordSize; idx++) {
-            char ch = word.charAt(idx); // get a char from input
-            myStack.push(ch);
+        for (int idx = 0; idx < word.length(); idx++) {
+            myStack.push(word.charAt(idx));
         }
 
         String output = "";
         while (!myStack.isEmpty()) { 
-            char ch = (char) myStack.pop(); // pop a char
-            output += ch; // append to output
+            output += (char) myStack.pop(); // append to output
         }
 
         return output;

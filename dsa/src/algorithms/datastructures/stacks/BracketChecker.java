@@ -12,32 +12,31 @@ public class BracketChecker {
     }
 
     public void check() {
-        int stackSize = input.length();
-        MyStack myStack = new MyStack(stackSize);
+        MyStack myStack = new MyStack(input.length());
 
         if (!myStack.isEmpty()) {
             System.out.println("Error: missing right delimiter");
         }
 
         for (int idx = 0; idx < input.length(); idx++) {
-            char rightBracket = input.charAt(idx); // get a char from input
+            char bracket = input.charAt(idx); // get a char from input
 
-            switch (rightBracket) {
+            switch (bracket) {
                 case '{', '[', '(': // opening symbols
-                    myStack.push(rightBracket);
+                    myStack.push(bracket);
                     break;
                 case '}', ']', ')': // closing symbols
                     if (!myStack.isEmpty()) {
-                        char leftBracket = (char) myStack.pop();  // pop a char
+                        char bracketx = (char) myStack.pop();  // pop a char
                         
                         /* Check a char */
-                        if ((rightBracket == '}' && leftBracket != '{') 
-                            || (rightBracket == ']' && leftBracket != '[') 
-                            || (rightBracket == ')' && leftBracket != '(')) {
-                            System.out.println("Error: " + rightBracket + " at " + idx);
+                        if ((bracket == '}' && bracketx != '{') 
+                            || (bracket == ']' && bracketx != '[') 
+                            || (bracket == ')' && bracketx != '(')) {
+                            System.out.println("Error: " + bracket + " at " + idx);
                         }
                     } else {
-                        System.out.println("Error: " + rightBracket + " at " + idx);
+                        System.out.println("Error: " + bracket + " at " + idx);
                     }
                     break;
                 default:
