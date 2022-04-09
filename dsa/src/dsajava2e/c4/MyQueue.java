@@ -51,7 +51,7 @@ public class MyQueue {
     }
 
     public static void main(String[] args) {
-        MyQueue myQueue = new MyQueue(5);
+        MyQueue myQueue = new MyQueue(3);
 
         /* Insert 4 items */
         myQueue.insert(10);            

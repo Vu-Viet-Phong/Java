@@ -1,32 +1,36 @@
 package algorithms.datastructures.stacks;
 
-public class StackArray {
+/**
+ * Implements a Stack using an array
+ */
+public class MyStack {
     private static final int DEFAULT_CAPACITY = 10;
     private int maxSize;
     private int[] stackArray;
     private int top;
 
-    public StackArray() {
+    /* Initial Stack with default capacity */
+    public MyStack() {
         this(DEFAULT_CAPACITY);
     }
 
-    public StackArray(int size) {
+    /* Initial Stack with input size */
+    public MyStack(int size) {
         maxSize = size;
         stackArray = new int[maxSize];
         top = -1;
     }
 
-     /**
+    /**
      * Adds an element to the top of the stack
      *
      * @param value The element added
      */
     public void push(int value) {
-        if (!isFull()) {
-            stackArray[++top] = value;
-        } else {
+        if (isFull()) {
             System.out.print("Can't push, stack is full.");
         }
+        stackArray[++top] = value;
     }
 
     /**
@@ -35,13 +39,11 @@ public class StackArray {
      * @return value popped off the Stack
      */
     public int pop() {
-        if (!isEmpty()) {
-            return stackArray[top--];
-        } else {
+        if (isEmpty()) {
             System.out.println("Can't pop, stack is empty.");
+            return -1;
         }
-
-        return -1;
+        return stackArray[top--];
     }
 
     /**
@@ -50,12 +52,11 @@ public class StackArray {
      * @return element at the top of the stack
      */
     public int peek() {
-        if (!isEmpty()) {
-            return stackArray[top];
-        } else {
+        if (isEmpty()) {
             System.out.println("Can't peek, stack is empty");
             return -1;
         }
+        return stackArray[top];
     }
 
     /**
@@ -96,9 +97,9 @@ public class StackArray {
     }
 
     public static void main(String[] args) {
-        StackArray myStack = new StackArray(10);
+        MyStack myStack = new MyStack(4);
 
-        /* push items onto stack */
+        /* Push items onto stack */
         myStack.push(20);
         myStack.push(40);
         myStack.push(60);
