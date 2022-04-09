@@ -19,7 +19,7 @@ public class BubbleSort {
     public static void bubbleSort(int[] arr) {
         for (int i = 1; i < arr.length - 1; i++) {
             boolean swapped = false;
-
+            System.out.println("i " + i);
             for (int j = 0; j < arr.length - i; j++) {
                 if (arr[j] > arr[j + 1]) {
                     int temp = arr[j];
@@ -43,8 +43,8 @@ public class BubbleSort {
     }
 
     public static void main(String[] args) {
-        int[] arr = {64, 34, 25, 12, 22, 11, 90};
-
+        //int[] arr = {64, 34, 25, 12, 22, 11, 90};
+        int[] arr = {10, 9, 8, 7, 6, 5, 4, 3, 2};
         bubbleSort(arr);
         System.out.println("Sorted array: ");
         printArr(arr);

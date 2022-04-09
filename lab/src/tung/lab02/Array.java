@@ -42,7 +42,7 @@ public class Array {
     public void bubbleSort() {
         for (int out = nElems - 1; out > 1; out--) {
             for (int in = 0; in < out; in++) {
-                if(arr[in] > arr[in + 1] ) {
+                if (arr[in] > arr[in + 1] ) {
                     swap(in, in + 1);
                 }
             }
@@ -50,10 +50,8 @@ public class Array {
     }
 
     public void selectionSort() {
-        int min;
-
-        for(int out = 0; out < nElems - 1; out++) {
-            min = out;      
+        for (int out = 0; out < nElems - 1; out++) {
+            int min = out;      
 
             for (int in = out + 1; in < nElems; in++) { 
                 if (arr[in] < arr[min] ) {        
@@ -72,16 +70,16 @@ public class Array {
     }
 
     public void insertionSort() {
-        for (int out=1; out<nElems; out++) {
-            long temp = arr[out];            
-            int in = out;
+        for (int i = 1; i < nElems; i++) {
+            long temp = arr[i];            
+            int j = i;
 
-            while(in > 0 && arr[in-1] >= temp)  {
-                arr[in] = arr[in-1];            
-                --in;                       
+            while(j > 0 && arr[j-1] >= temp)  {
+                arr[j] = arr[j-1];            
+                --j;                       
             }
 
-            arr[in] = temp;
+            arr[j] = temp;
         } 
     }
 
@@ -89,7 +87,6 @@ public class Array {
         for (int i = 0; i < nElems; i++) {
             System.out.print(arr[i] + " ");
         }
-
         System.out.println("");
     }
 
