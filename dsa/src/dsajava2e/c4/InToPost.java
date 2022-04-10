@@ -83,7 +83,7 @@ public class InToPost {
             if (chx == '(') {               // if popped '('
                 break;                      // we're done
             } else {                        // if popped operator
-                output = output + chx;      // output it
+                output += + chx;            // output it
             }
         }  
     }

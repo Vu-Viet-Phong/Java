@@ -24,13 +24,13 @@ public class MyStack {
     /**
      * Adds an element to the top of the stack
      *
-     * @param value The element added
+     * @param item The element added
      */
-    public void push(int value) {
+    public void push(int item) {
         if (isFull()) {
             System.out.print("Can't push, stack is full.");
         } else {
-            stackArray[++top] = value;
+            stackArray[++top] = item;
         }
     }
 
@@ -110,9 +110,7 @@ public class MyStack {
         myStack.push(80);
 
         while (!myStack.isEmpty()) {
-            System.out.print(myStack.peek());
-            myStack.pop();
-            System.out.print(" ");
+            System.out.print(myStack.pop() + " ");
         }
         System.out.println("");
     }

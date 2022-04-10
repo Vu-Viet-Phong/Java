@@ -25,14 +25,14 @@ public class MyQueue {
     /**
      * Inserts an element at the rear of the queue
      *
-     * @param value element to be added
+     * @param item element to be added
      * @return true if the element was added successfully
      */
-    public void insert(int value) {
+    public void insert(int item) {
         if (rear == maxSize - 1) {
             rear = -1;
         }
-        queueArray[++rear] = value;
+        queueArray[++rear] = item;
         nItems++;
     }
 
@@ -118,8 +118,7 @@ public class MyQueue {
         myQueue.insert(80);
 
         while (!myQueue.isEmpty()) {
-            System.out.print(myQueue.remove());// (40, 50, 60, 70, 80)
-            System.out.print(" ");
+            System.out.print(myQueue.remove() + " ");// (40, 50, 60, 70, 80)
         }
         System.out.println("");
     }
