@@ -46,7 +46,7 @@ public class DoubleEndedLinkedList {
     }
 
     public void displayList() {
-        System.out.println("List (first --> last): ");
+        System.out.print("List (first --> last): ");
         Link current = first;
 
         while (current != null) {
