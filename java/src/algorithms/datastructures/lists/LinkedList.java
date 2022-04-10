@@ -18,7 +18,7 @@ public class LinkedList {
         Link previous = null;           // start at first
         Link current = first;
 
-        while (current != null && value > current.data) {                             // or key > current,
+        while (current != null && value > current.data) {
             previous = current;
             current = current.next;     // go to next item
         }
