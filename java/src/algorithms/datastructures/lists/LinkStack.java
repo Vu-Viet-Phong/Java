@@ -1,9 +1,9 @@
 package algorithms.datastructures.lists;
 
-class LinkedList {
+class LinkList {
     private Link first;
 
-    public LinkedList() {
+    public LinkList() {
         first = null;
     }
 
@@ -33,11 +33,14 @@ class LinkedList {
     }
 }
 
+/**
+ * Implements a Stack using an Linked List
+ */
 public class LinkStack {
-    private LinkedList list;
+    private LinkList list;
 
     public LinkStack() {
-        list = new LinkedList();
+        list = new LinkList();
     }
 
     public void push(int item) {
