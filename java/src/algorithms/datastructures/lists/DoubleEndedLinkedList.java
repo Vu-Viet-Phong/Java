@@ -13,11 +13,11 @@ class Node {
     }
 }
 
-public class CircleLinkedList {
+public class DoubleEndedLinkedList {
     private Node first; // ref to first link
     private Node last;  // ref to last link
 
-    public CircleLinkedList() {
+    public DoubleEndedLinkedList() {
         first = null;
         last = null;
     }
@@ -50,6 +50,7 @@ public class CircleLinkedList {
             last = null;
         }
         first = first.next;
+        
         return temp;
     }
 
@@ -69,7 +70,7 @@ public class CircleLinkedList {
     }
 
     public static void main(String[] args) {
-        CircleLinkedList theList = new CircleLinkedList();
+        DoubleEndedLinkedList theList = new DoubleEndedLinkedList();
         theList.insertFirst(22); // insert at front
         theList.insertFirst(44);
         theList.insertFirst(66);

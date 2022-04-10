@@ -7,16 +7,22 @@ public class LinkedList {
         first = null;
     }
 
-    public void insertFirst(int id, double dd) {
-        Link newLink = new Link(id, dd);
+    public void insertFirst(int value) {
+        Link newLink = new Link(value);
         newLink.next = first;
         first = newLink;
+    }
+
+    public Link deleteFirst() {
+        Link temp = first;
+        first = first.next;
+        return temp;
     }
 
     public Link find(int key) {
         Link current = first;
         
-        while (current.iData != key) {
+        while (current.data != key) {
             if (current.next == null) {
                 return null;
             } else {
@@ -31,7 +37,7 @@ public class LinkedList {
         Link current = first;
         Link previous = first;
 
-        while (current.iData != key) {
+        while (current.data != key) {
             if (current.next == null) {
                 return null;
             } else {
@@ -49,14 +55,8 @@ public class LinkedList {
         return current;
     }
 
-    public Link deleteFirst() {
-        Link temp = first;
-        first = first.next;
-        return temp;
-    }
-
     public boolean isEmpty() {
-        return (first == null);
+        return first == null;
     }
 
     public void displayList() {
@@ -73,21 +73,21 @@ public class LinkedList {
     public static void main(String[] args) {
         LinkedList theList = new LinkedList();
 
-        theList.insertFirst(22, 2.99);
-        theList.insertFirst(44, 4.99);
-        theList.insertFirst(66, 6.99);
-        theList.insertFirst(88, 8.99);
+        theList.insertFirst(22);
+        theList.insertFirst(44);
+        theList.insertFirst(66);
+        theList.insertFirst(88);
 
         theList.displayList(); 
 
         Link f = theList.find(44);
         if (f != null) {
-            System.out.println("Found link with key " + f.iData);
+            System.out.println("Found link with key " + f.data);
         } else {
             System.out.println("Can't find link");
         }
 
-        Link d = theList.delete(66);
+        /* Link d = theList.delete(66);
         if (d != null) {
             System.out.println("Deleted link with key " + d.iData);
         } else {
@@ -99,8 +99,8 @@ public class LinkedList {
             System.out.println("Deleted ");
             aLink.displayLink();
             System.err.println("");
-        } */
+        }
         
-        theList.displayList();
+        theList.displayList(); */
     }
 }

@@ -30,11 +30,11 @@ public class LinearSearch {
         int n = 22;
         int[] arr = {64, 34, 25, 12, 22, 11, 90};
 
-        int result = linearSearch(arr, n);
-        if (result == -1) {
+        int index = linearSearch(arr, n);
+        if (index == -1) {
             System.out.println("Element is not present in array");
         } else { 
-            System.out.println("Element is present at index: " + result);
+            System.out.println("Element is present at index: " + index);
         }
     }
 }

@@ -45,11 +45,11 @@ public class BinarySearch {
         int n = 64;
         int[] arr = {11, 12, 22, 25, 34, 64, 70, 88, 90};
         
-        int result = binarySearch(arr, n);
-        if (result == -1) {
+        int index = binarySearch(arr, n);
+        if (index == -1) {
             System.out.println("Element is not present in array");
         } else { 
-            System.out.println("Element is present at index: " + result);
+            System.out.println("Element is present at index: " + index);
         }
     }
 }
