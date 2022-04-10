@@ -1,21 +1,8 @@
 package algorithms.datastructures.lists;
 
-class Node {
-    public int value;
-    public Node next;
-
-    public Node(int value) {
-        this.value = value;
-    }
-
-    public void displayNode() {
-        System.out.print(value + " ");
-    }
-}
-
 public class DoubleEndedLinkedList {
-    private Node first; // ref to first link
-    private Node last;  // ref to last link
+    private Link first; // ref to first link
+    private Link last;  // ref to last link
 
     public DoubleEndedLinkedList() {
         first = null;
@@ -23,28 +10,28 @@ public class DoubleEndedLinkedList {
     }
 
     public void insertFirst(int value) {
-        Node newNode = new Node(value);
+        Link newLink = new Link(value);
 
         if (isEmpty()) {
-            last = newNode;
+            last = newLink;
         }
-        newNode.next = first;
-        first = newNode;
+        newLink.next = first;
+        first = newLink;
     }
 
     public void insertLast(int value) {
-        Node newNode = new Node(value);
+        Link newLink = new Link(value);
         
         if (isEmpty()) {
-            first = newNode;
+            first = newLink;
         } else {
-            last.next = newNode;
+            last.next = newLink;
         }
-        last = newNode;
+        last = newLink;
     }
 
     public int deleteFirst() {
-        int temp = first.value;
+        int temp = first.data;
 
         if (first.next == null) {
             last = null;
@@ -60,10 +47,10 @@ public class DoubleEndedLinkedList {
 
     public void displayList() {
         System.out.println("List (first --> last): ");
-        Node current = first;
+        Link current = first;
 
         while (current != null) {
-            current.displayNode();
+            current.displayLink();
             current = current.next;
         }
         System.out.println("");
