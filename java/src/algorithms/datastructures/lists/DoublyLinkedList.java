@@ -1,20 +1,19 @@
 package algorithms.datastructures.lists;
-
-class Link {
-    public int data; 
-    public Link next;
-    public Link previous; 
-
-    public Link(int value) {
-        data = value; 
-    }
-
-    public void displayLink() {
-        System.out.print(data + " ");
-    }
-}
-
 public class DoublyLinkedList {
+    private class Link {
+        public int data; 
+        public Link next;
+        public Link previous; 
+    
+        public Link(int value) {
+            data = value; 
+        }
+    
+        public void displayLink() {
+            System.out.print(data + " ");
+        }
+    }
+
     private Link first;               // ref to first item
     private Link last;                // ref to last item
 
