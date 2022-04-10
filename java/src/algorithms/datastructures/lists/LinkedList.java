@@ -13,6 +13,24 @@ public class LinkedList {
         first = newLink;
     }
 
+    public void insert(int value) {
+        Link newLink = new Link(value); // make new link
+        Link previous = null;           // start at first
+        Link current = first;
+
+        while (current != null && value > current.data) {                             // or key > current,
+            previous = current;
+            current = current.next;     // go to next item
+        }
+
+        if (previous == null) {         // at beginning of list
+            first = newLink;            // first --> newLink
+        } else {                        // not at beginning
+            previous.next = newLink;    // old prev --> newLink
+        }
+        newLink.next = current;         // newLink --> old currnt
+    }
+
     public Link deleteFirst() {
         Link temp = first;
         first = first.next;
@@ -77,7 +95,6 @@ public class LinkedList {
         theList.insertFirst(44);
         theList.insertFirst(66);
         theList.insertFirst(88);
-
         theList.displayList(); 
 
         Link f = theList.find(44);
@@ -102,5 +119,13 @@ public class LinkedList {
         }
         
         theList.displayList(); */
+
+        LinkedList theList2 = new LinkedList();
+        theList2.insert(21);
+        theList2.insert(66);
+        theList2.insert(54);
+        theList2.insert(11);
+        theList2.insert(22);
+        theList2.displayList(); 
     }
 }
