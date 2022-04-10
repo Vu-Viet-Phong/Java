@@ -1,6 +1,6 @@
 package algorithms.datastructures.lists;
 
-class Link {
+public class Link {
     public int data; 
     public Link next;
 

@@ -1,17 +1,4 @@
-package algorithms.datastructures.stacks.linkstack;
-
-class Link {
-    public int data; 
-    public Link next;
-
-    public Link(int value) {
-        data = value; 
-    }
-
-    public void displayLink() {
-        System.out.print("{" + data + "} ");
-    }
-}
+package algorithms.datastructures.lists;
 
 class LinkedList {
     private Link first;
@@ -46,7 +33,7 @@ class LinkedList {
     }
 }
 
-class LinkStack {
+public class LinkStack {
     private LinkedList list;
 
     public LinkStack() {
@@ -57,7 +44,7 @@ class LinkStack {
         list.insertFirst(item);
     }
 
-    public long pop() {
+    public int pop() {
         return list.deleteFirst();
     }
 
@@ -68,5 +55,21 @@ class LinkStack {
     public void displayStack() {
         System.out.print("Stack (top --> botom): ");
         list.displayList();
+    }
+
+    public static void main(String[] args) {
+        LinkStack lstack = new LinkStack();
+
+        lstack.push(20);
+        lstack.push(40);
+        lstack.displayStack();
+
+        lstack.push(60);
+        lstack.push(80);
+        lstack.displayStack();
+
+        lstack.pop();
+        lstack.pop();
+        lstack.displayStack();
     }
 }
