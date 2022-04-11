@@ -7,6 +7,18 @@ public class LinkedList {
         first = null;
     }
 
+    public Link getFirst() {
+        return first;
+    }
+
+    public void setFirst(Link first) {
+        this.first = first;
+    }
+
+    public ListIterator getIterator() {
+        return new ListIterator(this);
+    }
+
     public void insertFirst(int value) {
         Link newLink = new Link(value);
         newLink.next = first;
@@ -78,8 +90,7 @@ public class LinkedList {
     }
 
     public void displayList() {
-        System.out.print("List (first --> last): ");
-        Link current = first; // start at beginning of list
+        Link current = first; 
        
         while (current != null) {
             current.displayLink();  // print data
