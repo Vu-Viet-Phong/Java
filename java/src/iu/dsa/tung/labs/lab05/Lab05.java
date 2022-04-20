@@ -21,7 +21,7 @@ public class Lab05 {
      * Computes the sum of all numbers from 1 to 1/n
      * 
      * @param n > 1
-     * @return the sum  1 + 1/2 + 1/3 +...+1/n
+     * @return the sum  1 + 1/2 + 1/3 +...+ 1/n
      */
     public static double sum(int n) {
         return n == 1 ? 1 : (double) 1 / n + sum(n - 1);
