@@ -77,7 +77,7 @@ public class Vector2D {
      * Returns the scalar product (dot product) of the current 
      * vector with the given vector.
      */
-    public static double dot(Vector2D v) {
+    public double dot(Vector2D v) {
         return (this.x * v.x + this.y * v.y);
     }
 
@@ -117,19 +117,6 @@ public class Vector2D {
      */
     public Vector2D getPerp() {
         return new Vector2D(-y, x);
-    }
-
-    public double angle(Vector2D v) {
-        double lengthV = v.magnitude();
-
-        if ((Math.abs(lengthV) < EPS) || (Math.abs(magnitude()) < EPS)) {
-            return 0.0;
-        }
-
-        double AdotB = Vector2D.dot(v);
-        double cosAB = AdotB / (magnitude() * lengthV);
-
-        return Math.acos(cosAB) * (180.0 / Math.PI);
     }
 
     public double angle(Vector2D v1, Vector2D v2) {
