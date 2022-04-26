@@ -1,5 +1,7 @@
 package algorithms.linearalgebra.vector;
 
+import java.util.Vector;
+
 public class Vector2D {
     public final double EPS = 1e-7;
     private double x;
@@ -19,8 +21,12 @@ public class Vector2D {
 
     /** Constructs a vector from old vector. */
     public Vector2D(Vector2D oldVector) {
-        this.x = oldVector.x;
-        this.y = oldVector.y;
+        set(oldVector);
+    }
+
+    public void set(Vector2D v) {
+        this.x = v.x;
+        this.y = v.y;
     }
 
     /**
@@ -131,6 +137,33 @@ public class Vector2D {
         double cosAB = AdotB / (lenA * lenB);
 
         return Math.acos(cosAB) * (180.0 / Math.PI);
+    }
+
+    public static Vector2D toCartesian(double magnitude, double angle) {
+        return new Vector2D(magnitude * Math.cos(angle), 
+                            magnitude * Math.sin(angle));
+    }
+
+    public void rotateTo(double angle) {
+        set(toCartesian(magnitude(), angle));
+    }
+
+    public Vector2D getRotatedTo(double angle) {
+        return toCartesian(magnitude(), angle);
+    }
+
+    public void rotateBy(double angle) {
+        double cos = Math.cos(angle);
+        double sin = Math.sin(angle);
+        double rx = x * cos - y * sin;
+        y = x * sin + y * cos;
+        x = rx;
+    }
+
+    public Vector2D getRotateBy(double angle) {
+        double cos = Math.cos(angle);
+        double sin = Math.sin(angle);
+        return new Vector2D(x * cos - y * sin, x * sin + y * cos);
     }
 
     /** 
