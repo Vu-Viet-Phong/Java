@@ -1,7 +1,5 @@
 package algorithms.linearalgebra.vector;
 
-import java.util.Vector;
-
 public class Vector2D {
     public final double EPS = 1e-7;
     private double x;
