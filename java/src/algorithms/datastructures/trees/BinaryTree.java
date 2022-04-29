@@ -279,17 +279,15 @@ public class BinaryTree {
         int value;
         BinaryTree bt = new BinaryTree();
 
-        bt.insert(50);
-        bt.insert(25);
-        bt.insert(75);
-        bt.insert(12);
-        bt.insert(37);
-        bt.insert(43);
+        bt.insert(40);
+        bt.insert(15);
+        bt.insert(29);
+        bt.insert(32);
+        bt.insert(62);
+        bt.insert(15);
         bt.insert(30);
-        bt.insert(26);
-        bt.insert(60);
-        bt.insert(58);
-        bt.insert(57);
+        bt.insert(100);
+        bt.insert(64);
 
         while (true) {
             System.out.print("Enter first letter of show, ");
