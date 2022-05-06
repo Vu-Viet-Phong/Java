@@ -1,8 +1,10 @@
-package algorithms.datastructures.stacks;
+package algorithms.datastructures.stacks.medium;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+
+import algorithms.datastructures.stacks.MyStack;
 
 public class BracketChecker {
     private String input;
@@ -27,16 +29,18 @@ public class BracketChecker {
                     break;
                 case '}', ']', ')': // closing symbols
                     if (!myStack.isEmpty()) {
-                        char bracketx = (char) myStack.pop();  // pop a char
+                        char bracketx = (char) myStack.pop();
                         
                         /* Check a char */
                         if ((bracket == '}' && bracketx != '{') 
                             || (bracket == ']' && bracketx != '[') 
                             || (bracket == ')' && bracketx != '(')) {
-                            System.out.println("Error: " + bracket + " at " + idx);
+                            System.out.println("Error: " 
+                                        + bracket + " at " + idx);
                         }
                     } else {
-                        System.out.println("Error: " + bracket + " at " + idx);
+                        System.out.println("Error: " 
+                                        + bracket + " at " + idx);
                     }
                     break;
                 default:
@@ -57,8 +61,8 @@ public class BracketChecker {
             System.out.print("Enter string containing delimiters: ");
             System.out.flush();
 
-            String input = getString();     // read a string
-            if (input.equals("")) {         // quit if [Enter]
+            String input = getString();     
+            if (input.equals("")) {
                 break;
             }
 
