@@ -24,7 +24,7 @@ public class Main {
         return Integer.parseInt(s);
     }
 
-    public static void HashTableApp() throws IOException {
+    public static void hashTableApp() throws IOException {
         Node dataItem;
         int aKey, size, n, keysPerCell;
 
@@ -78,8 +78,18 @@ public class Main {
             }
         }
     }
+
+    public void hashDoubleApp() {
+
+    }
+
+    public void hashChainApp() {
+
+    }
       
     public static void main(String[] args) throws IOException {
-        HashTableApp();
+        // hashTableApp();
+        // hashDoubleApp();
+        // hashChainApp();;
     }
 }
