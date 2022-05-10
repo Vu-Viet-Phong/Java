@@ -22,6 +22,11 @@ public class BinaryTree {
         root = null;
     }
 
+    /**
+     * Find a Node with given key
+     * @param key given key
+     * @return 
+     */
     public Node find(int key) {
         Node current = root;
 
@@ -36,14 +41,17 @@ public class BinaryTree {
                 return null;
             }
         }
-
         return current;
     }
 
+    /**
+     * Insert node with given value
+     * @param value given value
+     */
     public void insert(int value) {
         Node newNode = new Node();
+
         newNode.data = value;
-        
         if (root == null) {
             root = newNode;
         } else {
@@ -52,17 +60,14 @@ public class BinaryTree {
 
             while (true) {
                 parent = current;
-
                 if (value < current.data) {
                     current = current.left; 
-
                     if (current == null) {
                         parent.left = newNode;
                         return;
                     }
                 } else {
                     current = current.right;
-                    
                     if (current == null) {
                         parent.right = newNode;
                         return;
@@ -85,7 +90,6 @@ public class BinaryTree {
         /* Search for node */
         while (curent.data != key) {
             parent = curent;
-
             if (key < curent.data) {
                 isLeftChild = true;
                 curent = curent.left;
@@ -136,10 +140,8 @@ public class BinaryTree {
             } else {
                 parent.right = successor;
             }
-
             successor.left = curent.left;
         }
-
         return true;
     }
 
