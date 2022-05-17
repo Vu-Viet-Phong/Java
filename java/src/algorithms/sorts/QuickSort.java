@@ -25,16 +25,15 @@ public class QuickSort {
             } else {
                 swap(arr, l, r);
             }
-        } // end while (true)
+        }
         swap(arr, l, right);
-
         return l;
     } // end partition()
 
-    public static void swap(int[] arr, int idx1, int idx2) {
-        int temp = arr[idx1];
-        arr[idx1] = arr[idx2];
-        arr[idx2] = temp;
+    private static void swap(int[] arr, int a, int b) {
+        int temp = arr[a];
+        arr[a] = arr[b];
+        arr[b] = temp;
     }
 
     /** Prints the array */

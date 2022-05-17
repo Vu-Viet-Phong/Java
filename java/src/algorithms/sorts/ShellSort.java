@@ -23,24 +23,23 @@ public class ShellSort {
         int gap = 1;
 
         /* Calculate gap for optimization purpose */
-        while (gap <= n / 3) {
+        while (gap < n / 3) {
             gap = gap * 3 + 1; // (1, 4, 13, 40, 121, ...)
         }
 
-        while (gap > 0) { // decreasing gap, until h = 1
+        while (gap > 0) { // decreasing gap, until gap = 1
             for (int i = gap; i < n; i++) {
                 int temp = arr[i];
-                int j = i;
-
-                while (j > gap - 1 && arr[j - gap] >= temp) {
+                int j;
+                
+                for (j = i; j >= gap && arr[j - gap] > temp; j -= gap) {
                     arr[j] = arr[j - gap];
-                    j -= gap;
                 }
                 arr[j] = temp;
             }
             gap = (gap - 1) / 3;
-        } // end while (gap > 0)
-    } // end shellSort()
+        }
+    }
 
     /** Prints the array */
     public static void display(int[] arr) {

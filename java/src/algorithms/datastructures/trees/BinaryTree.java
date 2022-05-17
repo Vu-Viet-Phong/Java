@@ -31,7 +31,7 @@ public class BinaryTree {
         Node current = root;
 
         while (current.data != key) {
-            if (key < current.data) {
+            if (current.data > key) {
                 current = current.left;
             } else {
                 current = current.right;
@@ -90,7 +90,7 @@ public class BinaryTree {
         /* Search for node */
         while (curent.data != key) {
             parent = curent;
-            if (key < curent.data) {
+            if (curent.data > key) {
                 isLeftChild = true;
                 curent = curent.left;
             } else {
@@ -112,8 +112,7 @@ public class BinaryTree {
             } else {
                 parent.right = null;
             } 
-        } else if (curent.right == null) {
-        /* If no right child, replace with left subtree */
+        } else if (curent.right == null) { // no right child
             if (curent == root) {
                 root = curent.left;
             } else if (isLeftChild) {
@@ -121,8 +120,7 @@ public class BinaryTree {
             } else {
                 parent.right = curent.left;
             }
-        } else if (curent.left == null) { 
-        /* If no left child, replace with right subtree */
+        } else if (curent.left == null) {  // no left child
             if (curent == root) {
                 root = curent.right;
             } else if (isLeftChild) {
@@ -146,7 +144,7 @@ public class BinaryTree {
     }
 
     /**
-     * returns node with next-highest value after delNode
+     * Returns node with next-highest value after delNode
      * goes to right child, then right child's left descendents
      * @param delNode
      * @return
@@ -166,7 +164,6 @@ public class BinaryTree {
             successorParent.left = successor.right;
             successor.right = delNode.right;
         }
-
         return successor;
     }
 
