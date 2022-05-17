@@ -12,7 +12,7 @@ public class BinaryTree {
         public Node right;
         
         public void displayNode() {
-            System.out.print('{' + data + "}");
+            System.out.print("(" + data + "}");
         }
     }
 
@@ -22,11 +22,6 @@ public class BinaryTree {
         root = null;
     }
 
-    /**
-     * Find a Node with given key
-     * @param key given key
-     * @return 
-     */
     public Node find(int key) {
         Node current = root;
 
@@ -44,10 +39,6 @@ public class BinaryTree {
         return current;
     }
 
-    /**
-     * Insert node with given value
-     * @param value given value
-     */
     public void insert(int value) {
         Node newNode = new Node();
 
@@ -60,7 +51,7 @@ public class BinaryTree {
 
             while (true) {
                 parent = current;
-                if (value < current.data) {
+                if (current.data > value) {
                     current = current.left; 
                     if (current == null) {
                         parent.left = newNode;

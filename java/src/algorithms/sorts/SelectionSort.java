@@ -13,7 +13,6 @@ package algorithms.sorts;
 public class SelectionSort {
     /**
      * Selection sort algorithm implements
-     * 
      * @param arr to be sorted
      */
     public static void selectionSort(int[] arr) {
@@ -25,7 +24,10 @@ public class SelectionSort {
                     min_idx = j;
                 }
             }
-            swap(arr, min_idx, i);
+
+            if (min_idx != i) {
+                swap(arr, min_idx, i);
+            }
         }
     }
 
