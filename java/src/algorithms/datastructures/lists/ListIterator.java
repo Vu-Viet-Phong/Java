@@ -15,7 +15,7 @@ public class ListIterator {
     }
 
     public void reset() {
-        current = ourList.getFirst();
+        // current = ourList.getFirst();
         previous = null;
     }
 
@@ -36,7 +36,7 @@ public class ListIterator {
         Link newLink = new Link(item);
 
         if (ourList.isEmpty()) {
-            ourList.setFirst(newLink);
+            // ourList.setFirst(newLink);
             current = newLink;
         } else {
             newLink.next = current.next;
@@ -49,8 +49,8 @@ public class ListIterator {
         Link newLink = new Link(item);
 
         if (previous == null) {
-            newLink.next = ourList.getFirst();
-            ourList.setFirst(newLink);
+            // newLink.next = ourList.getFirst();
+            // ourList.setFirst(newLink);
             reset();
         } else {
             newLink.next = previous.next;
@@ -63,7 +63,7 @@ public class ListIterator {
         int value = current.data;
 
         if (previous == null) {
-            ourList.setFirst(current.next);
+            // ourList.setFirst(current.next);
             reset();
         } else {
             previous.next = current.next;

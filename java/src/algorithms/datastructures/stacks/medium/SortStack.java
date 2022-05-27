@@ -1,6 +1,6 @@
 package algorithms.datastructures.stacks.medium;
 
-import algorithms.datastructures.stacks.MyStack;
+import algorithms.datastructures.stacks.Stack;
 
 /**
  * Given a stack, the task is to sort it such that the top of the 
@@ -9,8 +9,8 @@ import algorithms.datastructures.stacks.MyStack;
  * Output: 45 32 23 10 7 
  */
 public class SortStack {
-    public static MyStack sortStack(MyStack s) {
-        MyStack tempStack = new MyStack(s.getSize());
+    public static Stack sortStack(Stack s) {
+        Stack tempStack = new Stack(s.getSize());
 
         while (!s.isEmpty()) {
             int temp = s.peek();
@@ -27,7 +27,7 @@ public class SortStack {
     }
 
     public static void main(String[] args) {
-        MyStack myStack = new MyStack();
+        Stack myStack = new Stack();
 
         myStack.push(45);
         myStack.push(32);

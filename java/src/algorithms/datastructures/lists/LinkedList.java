@@ -1,7 +1,20 @@
 package algorithms.datastructures.lists;
 
 public class LinkedList {
-    private Link first; // ref to first on list
+    private class Link {
+        public int data;
+        public Link next;
+
+        public Link (int value) {
+            data = value;
+        }
+
+        public void displayLink() {
+            System.out.print("{" + data + "} ");
+        }
+    }
+
+    private Link first;
 
     public void LinkList() {
         first = null;

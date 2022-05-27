@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-import algorithms.datastructures.stacks.MyStack;
+import algorithms.datastructures.stacks.Stack;
 
 public class BracketChecker {
     private String input;
@@ -14,7 +14,7 @@ public class BracketChecker {
     }
 
     public void check() {
-        MyStack myStack = new MyStack(input.length());
+        Stack myStack = new Stack(input.length());
 
         if (!myStack.isEmpty()) {
             System.out.println("Error: missing right delimiter");

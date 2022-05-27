@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-import algorithms.datastructures.stacks.MyStack;
+import algorithms.datastructures.stacks.Stack;
 
 /**
  * Stack used to reverse a string
@@ -18,7 +18,7 @@ public class ReversingWord {
 
     /* Reverse the string */
     public String doReverser() {
-        MyStack myStack = new MyStack(word.length());
+        Stack myStack = new Stack(word.length());
 
         for (int idx = 0; idx < word.length(); idx++) {
             myStack.push(word.charAt(idx));

@@ -1,6 +1,9 @@
 package algorithms.datastructures.queues;
 
-public class MyQueue {
+/**
+ * Implements a Queue using an array
+ */
+public class Queue {
     private static final int DEFAULT_CAPACITY = 10; 
     private int maxSize;
     private int[] queueArray;
@@ -9,12 +12,12 @@ public class MyQueue {
     private int nItems;
 
     /* Initial Stack with default capacity */
-    private MyQueue() {
+    private Queue() {
         this(DEFAULT_CAPACITY);
     }
 
     /* Initial Stack with input size */
-    private MyQueue(int size) {
+    private Queue(int size) {
         maxSize = size;
         queueArray = new int[size];
         front = 0;
@@ -98,7 +101,7 @@ public class MyQueue {
     }
 
     public static void main(String[] args) {
-        MyQueue myQueue = new MyQueue(5);
+        Queue myQueue = new Queue(5);
 
         /* Insert 4 items */
         myQueue.insert(10);            

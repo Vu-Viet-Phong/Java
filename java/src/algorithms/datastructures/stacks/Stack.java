@@ -3,19 +3,19 @@ package algorithms.datastructures.stacks;
 /**
  * Implements a Stack using an array
  */
-public class MyStack {
+public class Stack {
     private static final int DEFAULT_CAPACITY = 10;
     private int maxSize;
     private int[] stackArray;
     private int top;
 
     /* Initial Stack with default capacity */
-    public MyStack() {
+    public Stack() {
         this(DEFAULT_CAPACITY);
     }
 
     /* Initial Stack with input size */
-    public MyStack(int size) {
+    public Stack(int size) {
         maxSize = size;
         stackArray = new int[maxSize];
         top = -1;
@@ -23,7 +23,6 @@ public class MyStack {
 
     /**
      * Adds an element to the top of the stack
-     *
      * @param item The element added
      */
     public void push(int item) {
@@ -36,7 +35,6 @@ public class MyStack {
 
     /**
      * Removes the top element of the stack and returns the value you've removed
-     *
      * @return value popped off the Stack
      */
     public int pop() {
@@ -50,7 +48,6 @@ public class MyStack {
 
     /**
      * Returns the element at the top of the stack
-     * 
      * @return element at the top of the stack
      */
     public int peek() {
@@ -65,20 +62,18 @@ public class MyStack {
 
     /**
      * Returns true if the stack is empty
-     *
      * @return true if the stack is empty
      */
     public boolean isEmpty() {
-        return (top == -1);
+        return top == -1;
     }
 
     /**
-     * Returns true if the stack is full
-     *
+     * Returns true if the stack is full                                                                                                                                                                                                                                                                                                               
      * @return true if the stack is full
      */
     public boolean isFull() {
-        return (top == maxSize - 1);
+        return top == maxSize - 1;
     }
 
     /**
@@ -93,7 +88,6 @@ public class MyStack {
 
     /**
      * Return size of stack
-     *
      * @return size of stack
      */
     public int getSize() {
@@ -101,7 +95,7 @@ public class MyStack {
     }
 
     public static void main(String[] args) {
-        MyStack myStack = new MyStack(4);
+        Stack myStack = new Stack(4);
 
         /* Push items onto stack */
         myStack.push(20);
