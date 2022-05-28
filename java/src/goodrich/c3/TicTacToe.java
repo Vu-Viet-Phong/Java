@@ -1,4 +1,3 @@
-
 package goodrich.c3;
 
 /** Simulation of a Tic-Tac-Toe game (does not do strategy). */
@@ -12,13 +11,14 @@ public class TicTacToe {
         clearBoard(); 
     }
 
+    /** Clears the board */
     public void clearBoard() {
         for (int row = 0; row < 3; row++) {
             for (int col = 0; col < 3; col++) {
                 board[row][col] = EMPTY;
             }
         }
-        player = X;
+        player = X; // the first player is 'X'
     }
 
     /** Puts an X or O mark at position i, j */
@@ -84,5 +84,21 @@ public class TicTacToe {
             }
         }
         return sb.toString();
+    }
+
+    public static void main(String[] args) {
+        TicTacToe game = new TicTacToe();
+
+        /* X moves: */               /* O moves: */
+        game.putMark(1, 1);     game.putMark(0, 2);
+        game.putMark(2, 2);     game.putMark(0, 0);
+        game.putMark(0, 1);     game.putMark(2, 1);
+        game.putMark(1, 2);     game.putMark(1, 0);    
+        game.putMark(2, 0);
+
+        System.out.println(game);
+        int winningPlayer = game.winner();
+        String[] outcome = {"0 wins", "Ties,", "X wins"}; 
+        System.out.println(outcome[1 + winningPlayer]);
     }
 }
