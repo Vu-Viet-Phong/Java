@@ -1,22 +1,9 @@
 package algorithms.datastructures.lists;
 
-public class LinkedList {
-    private class Link {
-        public int data;
-        public Link next;
-
-        public Link (int value) {
-            data = value;
-        }
-
-        public void displayLink() {
-            System.out.print("{" + data + "} ");
-        }
-    }
-
+public class LinkList {
     private Link first;
 
-    public void LinkList() {
+    public LinkList() {
         first = null;
     }
 
@@ -28,32 +15,10 @@ public class LinkedList {
         this.first = first;
     }
 
-    public ListIterator getIterator() {
-        return new ListIterator(this);
-    }
-
     public void insertFirst(int value) {
         Link newLink = new Link(value);
         newLink.next = first;
         first = newLink;
-    }
-
-    public void insert(int value) {
-        Link newLink = new Link(value); // make new link
-        Link previous = null;           // start at first
-        Link current = first;
-
-        while (current != null && value > current.data) {
-            previous = current;
-            current = current.next;     // go to next item
-        }
-
-        if (previous == null) {         // at beginning of list
-            first = newLink;            // first --> newLink
-        } else {                        // not at beginning
-            previous.next = newLink;    // old prev --> newLink
-        }
-        newLink.next = current;         // newLink --> old currnt
     }
 
     public Link deleteFirst() {
@@ -64,7 +29,7 @@ public class LinkedList {
 
     public Link find(int key) {
         Link current = first;
-        
+
         while (current.data != key) {
             if (current.next == null) {
                 return null;
@@ -72,8 +37,25 @@ public class LinkedList {
                 current = current.next;
             }
         }
-
         return current;
+    }
+
+    public void insert(int value) {
+        Link newLink = new Link(value);
+        Link previous = null;
+        Link current = first;
+
+        while (current != null && value > current.data) {
+            previous = current;
+            current = current.next;
+        }
+
+        if (previous == null) {
+            first = newLink;
+        } else {
+            previous.next = newLink;
+        }
+        newLink.next = current;
     }
 
     public Link delete(int key) {
@@ -84,7 +66,7 @@ public class LinkedList {
             if (current.next == null) {
                 return null;
             } else {
-                previous = current; // go to next link
+                previous = current;
                 current = current.next;
             }
         }
@@ -104,16 +86,16 @@ public class LinkedList {
 
     public void displayList() {
         Link current = first; 
-       
+
         while (current != null) {
-            current.displayLink();  // print data
-            current = current.next; // move to next link
+            current.displayLink(); 
+            current = current.next;
         }
         System.out.println("");
     }
 
     public static void main(String[] args) {
-        LinkedList theList = new LinkedList();
+        LinkList theList = new LinkList();
 
         theList.insertFirst(22);
         theList.insertFirst(44);
@@ -144,7 +126,7 @@ public class LinkedList {
         
         theList.displayList(); */
 
-        LinkedList theList2 = new LinkedList();
+        LinkList theList2 = new LinkList();
         theList2.insert(21);
         theList2.insert(66);
         theList2.insert(54);

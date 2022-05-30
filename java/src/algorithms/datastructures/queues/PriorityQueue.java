@@ -24,8 +24,8 @@ public class PriorityQueue {
             queueArray[nItems++] = item; 
         } else {
             int idx = nItems - 1;
-            
-            while (idx >= 0 && queueArray[idx] > item) {
+
+            while (idx >= 0 && queueArray[idx] < item) {
                 queueArray[idx + 1] = queueArray[idx];
                 idx--;
             }

@@ -19,7 +19,7 @@ public class Queue {
     /* Initial Stack with input size */
     private Queue(int size) {
         maxSize = size;
-        queueArray = new int[size];
+        queueArray = new int[maxSize];
         front = 0;
         rear = -1;
         nItems = 0;

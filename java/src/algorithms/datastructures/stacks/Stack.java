@@ -1,20 +1,18 @@
 package algorithms.datastructures.stacks;
 
-/**
- * Implements a Stack using an array
- */
+/** Implements a Stack using an array */
 public class Stack {
     private static final int DEFAULT_CAPACITY = 10;
     private int maxSize;
     private int[] stackArray;
     private int top;
 
-    /* Initial Stack with default capacity */
+    /** Initial Stack with default capacity */
     public Stack() {
         this(DEFAULT_CAPACITY);
     }
 
-    /* Initial Stack with input size */
+    /** Initial Stack with input size */
     public Stack(int size) {
         maxSize = size;
         stackArray = new int[maxSize];
