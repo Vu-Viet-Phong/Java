@@ -12,10 +12,8 @@ package algorithms.sorts;
  */
 public class MergeSort {
     private static void mergeSort(int[] arr, int left, int mid, int right) {
-        // Find sizes of two subarrays to be merged
         int n1 = mid - left + 1;
         int n2 = right - mid;
-
         int[] arr_L = new int[n1];
         int[] arr_R = new int[n2];
 
@@ -50,11 +48,8 @@ public class MergeSort {
     static void sort(int[] arr, int left, int right) {
         if (left < right) {
             int mid = left + (right - left) / 2;
-
             sort(arr, left, mid);
             sort(arr, mid + 1, right);
-
-            // Merge the sorted halves
             mergeSort(arr, left, mid, right);
         }
     }

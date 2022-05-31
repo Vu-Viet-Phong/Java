@@ -1,9 +1,9 @@
 package algorithms.datastructures.lists;
 
-public class LinkList {
+public class LinkedList {
     private Link first;
 
-    public LinkList() {
+    public LinkedList() {
         first = null;
     }
 
@@ -95,7 +95,7 @@ public class LinkList {
     }
 
     public static void main(String[] args) {
-        LinkList theList = new LinkList();
+        LinkedList theList = new LinkedList();
 
         theList.insertFirst(22);
         theList.insertFirst(44);
@@ -126,7 +126,7 @@ public class LinkList {
         
         theList.displayList(); */
 
-        LinkList theList2 = new LinkList();
+        LinkedList theList2 = new LinkedList();
         theList2.insert(21);
         theList2.insert(66);
         theList2.insert(54);
