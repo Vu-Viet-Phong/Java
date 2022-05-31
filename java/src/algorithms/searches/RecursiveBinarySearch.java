@@ -42,8 +42,8 @@ public class RecursiveBinarySearch {
     public static void main(String[] args) {
         int n = 88;
         int[] arr = {11, 12, 22, 25, 34, 64, 70, 88, 90};
-        
         int index = binarySearch(arr, 0, arr.length, n);
+        
         if (index == -1) {
             System.out.println("Element is not present in array");
         } else { 

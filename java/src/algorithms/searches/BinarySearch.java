@@ -28,7 +28,7 @@ public class BinarySearch {
         
         while (left <= right) {
             int mid = left + (right - left) / 2;
-  
+
             if (arr[mid] == key) {
                 return mid;
             } else if (arr[mid] < key) {
@@ -44,8 +44,8 @@ public class BinarySearch {
     public static void main(String[] args) {
         int n = 64;
         int[] arr = {11, 12, 22, 25, 34, 64, 70, 88, 90};
-        
         int index = binarySearch(arr, n);
+        
         if (index == -1) {
             System.out.println("Element is not present in array");
         } else { 
