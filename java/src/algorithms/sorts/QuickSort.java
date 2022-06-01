@@ -1,18 +1,19 @@
 package algorithms.sorts;
 
 public class QuickSort {
+    /** Shell sort algorithm implements */
     public static void quickSort(int[] arr, int left, int right) {
         if (left < right) {
             int pivot = arr[right];
             int partition = partition(arr, left, right);
-            quickSort(arr, left, partition - 1);  // sort left side
-            quickSort(arr, partition + 1, right); // sort right side
+            quickSort(arr, left, partition - 1);
+            quickSort(arr, partition + 1, right);
         }
     }
 
     private static int partition(int[] arr, int left, int right) {
-        int indexPivot = right;
-        int pivot = arr[indexPivot];
+        int idxPivot = right;
+        int pivot = arr[idxPivot];
 
         left--;
         while (left < right) {
@@ -23,10 +24,11 @@ public class QuickSort {
                 swap(arr, left, right);
             }
         }
-        swap(arr, left, indexPivot);
+        swap(arr, left, idxPivot);
         return left;
     }
 
+    /** Swaps two elements */
     private static void swap(int[] arr, int a, int b) {
         int temp = arr[a];
         arr[a] = arr[b];
