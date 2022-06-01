@@ -1,7 +1,7 @@
 package algorithms.sorts;
 
 public class QuickSort {
-    /** Shell sort algorithm implements */
+    /** Quick sort algorithm implements */
     public static void quickSort(int[] arr, int left, int right) {
         if (left < right) {
             int pivot = arr[right];
