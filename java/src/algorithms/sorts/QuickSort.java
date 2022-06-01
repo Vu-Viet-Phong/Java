@@ -4,7 +4,6 @@ public class QuickSort {
     /** Quick sort algorithm implements */
     public static void quickSort(int[] arr, int left, int right) {
         if (left < right) {
-            int pivot = arr[right];
             int partition = partition(arr, left, right);
             quickSort(arr, left, partition - 1);
             quickSort(arr, partition + 1, right);
