@@ -2,14 +2,14 @@ package algorithms.datastructures.graphs;
 
 public class Graph {
     private final int MAX_VERTS = 20;
-    private Vertex[] vertexList; // array of vertices
-    private int[][] adjMat;      // adjacency matrix
     private int nVerts;          // current number of vertices
+    private int[][] adjMat;      // adjacency matrix
+    private Vertex[] vertexList; // array of vertices
 
     public Graph() {
-        vertexList = new Vertex[MAX_VERTS];
-        adjMat = new int[MAX_VERTS][MAX_VERTS];
         nVerts = 0;
+        adjMat = new int[MAX_VERTS][MAX_VERTS];
+        vertexList = new Vertex[MAX_VERTS];
         for (int i = 0; i < MAX_VERTS; i++) {
             for (int j = 0; j < MAX_VERTS; j++) {
                 adjMat[i][j] = 0;
