@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class BinaryTree {
-    static class Node {
+    private static class Node {
         public int data;
         public Node left;
         public Node right;
@@ -36,6 +36,7 @@ public class BinaryTree {
                 return null;
             }
         }
+        
         return current;
     }
 

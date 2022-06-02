@@ -1,16 +1,6 @@
 package algorithms.datastructures.graphs;
 
 public class Graph {
-    private class Vertex {
-        public char label;
-        public boolean wasVisited;
-        
-        public Vertex(char lab) {
-            label = lab;
-            wasVisited = false;
-        }
-    }
-
     private final int MAX_VERTS = 20;
     private Vertex[] vertexList; // array of vertices
     private int[][] adjMat;      // adjacency matrix
