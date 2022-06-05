@@ -18,15 +18,15 @@ public class BinaryTree {
 
     private Node root; 
 
-    public BinaryTree() {
-        root = null;
+    public BinaryTree() { 
+        root = null; 
     }
 
     public Node find(int key) {
         Node current = root;
 
         while (current.data != key) {
-            if (current.data > key) {
+            if (key < current.data) {
                 current = current.left;
             } else {
                 current = current.right;
@@ -35,15 +35,19 @@ public class BinaryTree {
             if (current == null) {
                 return null;
             }
-        }
-        
+        }  
+
         return current;
     }
 
+    /**
+     * 
+     * @param value
+     */
     public void insert(int value) {
         Node newNode = new Node();
-
         newNode.data = value;
+
         if (root == null) {
             root = newNode;
         } else {
@@ -52,7 +56,7 @@ public class BinaryTree {
 
             while (true) {
                 parent = current;
-                if (current.data > value) {
+                if (value < current.data) {
                     current = current.left; 
                     if (current == null) {
                         parent.left = newNode;
@@ -75,62 +79,62 @@ public class BinaryTree {
      * @return
      */
     public boolean delete(int key) {
-        Node curent = root;
+        Node current = root;
         Node parent = root;
         boolean isLeftChild = true;
 
         /* Search for node */
-        while (curent.data != key) {
-            parent = curent;
-            if (curent.data > key) {
+        while (current.data != key) {
+            parent = current;
+            if (key < current.data) {
                 isLeftChild = true;
-                curent = curent.left;
+                current = current.left;
             } else {
                 isLeftChild = false;
-                curent = curent.right;
+                current = current.right;
             }
 
-            if (curent == null) {
+            if (current == null) {
                 return false;
             }
         }
 
         /* If no children, simply delete it */
-        if (curent.left == null &&  curent.right == null) {
-            if (curent == root) {
+        if (current.left == null &&  current.right == null) {
+            if (current == root) {
                 root = null;
             } else if (isLeftChild) {
                 parent.left = null;
             } else {
                 parent.right = null;
             } 
-        } else if (curent.right == null) { // no right child
-            if (curent == root) {
-                root = curent.left;
+        } else if (current.right == null) { // no right child
+            if (current == root) {
+                root = current.left;
             } else if (isLeftChild) {
-                parent.left = curent.left;
+                parent.left = current.left;
             } else {
-                parent.right = curent.left;
+                parent.right = current.left;
             }
-        } else if (curent.left == null) {  // no left child
-            if (curent == root) {
-                root = curent.right;
+        } else if (current.left == null) {  // no left child
+            if (current == root) {
+                root = current.right;
             } else if (isLeftChild) {
-                parent.right = curent.right;
+                parent.right = current.right;
             } else {
-                parent.left = curent.right;
+                parent.left = current.right;
             }
         } else { // two children, so replace with inorder successor
-            Node successor = getSuccessor(curent);
+            Node successor = getSuccessor(current);
 
-            if (curent == root) {
+            if (current == root) {
                 root = successor;
             } else if (isLeftChild) {
                 parent.left = successor;
             } else {
                 parent.right = successor;
             }
-            successor.left = curent.left;
+            successor.left = current.left;
         }
         return true;
     }

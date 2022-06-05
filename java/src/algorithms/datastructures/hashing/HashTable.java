@@ -27,10 +27,21 @@ public class HashTable {
         return key % hashSize;
     }
 
+    public Node find(int key) {
+        int hashValue = hashFunc(key);
+        while (hashArray[hashValue] != null) {
+            if (hashArray[hashValue].getKey() == key) {
+                return hashArray[hashValue];
+            }
+            ++hashValue;
+            hashValue %= hashSize;
+        }
+        return null;
+    } 
+
     public void insert(Node item) {
         int key = item.getKey();
         int hashValue = hashFunc(key);
-
         while (hashArray[hashValue] != null &&
         hashArray[hashValue].getKey() != -1) {
             ++hashValue;            // go to next cell
@@ -41,7 +52,6 @@ public class HashTable {
 
     public Node delete(int key) {
         int hashValue = hashFunc(key);
-
         while (hashArray[hashValue] != null) {
             if (hashArray[hashValue].getKey() == key) {
                 Node temp = hashArray[hashValue];
@@ -53,19 +63,6 @@ public class HashTable {
         }
         return null;
     }
-
-    public Node find(int key) {
-        int hashValue = hashFunc(key);
-
-        while (hashArray[hashValue] != null) {
-            if (hashArray[hashValue].getKey() == key) {
-                return hashArray[hashValue];
-            }
-            ++hashValue;
-            hashValue %= hashSize;
-        }
-        return null;
-    } 
 
     public void displayTable() {
         System.out.print("Table: ");

@@ -5,16 +5,17 @@ public class Graph {
     private int nVerts;          // current number of vertices
     private int[][] adjMat;      // adjacency matrix
     private Vertex[] vertexList; // array of vertices
+    private StackX theStack;
 
     public Graph() {
-        nVerts = 0;
-        adjMat = new int[MAX_VERTS][MAX_VERTS];
         vertexList = new Vertex[MAX_VERTS];
-        for (int i = 0; i < MAX_VERTS; i++) {
-            for (int j = 0; j < MAX_VERTS; j++) {
-                adjMat[i][j] = 0;
-            }
-        }
+                                          // adjacency matrix
+        adjMat = new int[MAX_VERTS][MAX_VERTS];
+        nVerts = 0;
+        for(int y=0; y<MAX_VERTS; y++)      // set adjacency
+            for(int x=0; x<MAX_VERTS; x++)   //    matrix to 0
+                adjMat[x][y] = 0;
+        theStack = new StackX();
     }
 
     public void addVertex(char lab) {
@@ -28,5 +29,51 @@ public class Graph {
 
     public void displayVertex(int v) {
         System.out.print(vertexList[v].label);
+    }
+
+    /** Depth-first search */
+    public void dfs() {
+        vertexList[0].wasVisited = true;
+        displayVertex(0);
+        theStack.push(0);
+
+        while (!theStack.isEmpty()) {
+            int v = getAdjUnvisitedVertex(theStack.pop());
+            if (v == -1) {
+                theStack.pop();
+            } else {
+                vertexList[v].wasVisited = true;
+                displayVertex(v);
+                theStack.push(v);
+            }
+        }
+    }
+
+    /** Returns an unvisited vertex adj to v */
+    public int getAdjUnvisitedVertex(int v) {
+        for (int j = 0; j < nVerts; j++) {
+            if (adjMat[v][j] == 1 && vertexList[j].wasVisited == false) {
+                return j;
+            }
+        }
+        return -1;
+    }
+
+    public static void main(String[] args) {
+        Graph theGraph = new Graph();
+        theGraph.addVertex('A');    // 0  (start for dfs)
+        theGraph.addVertex('B');    // 1
+        theGraph.addVertex('C');    // 2
+        theGraph.addVertex('D');    // 3
+        theGraph.addVertex('E');    // 4
+
+        theGraph.addEdge(0, 1);     // AB
+        theGraph.addEdge(1, 2);     // BC
+        theGraph.addEdge(0, 3);     // AD
+        theGraph.addEdge(3, 4);     // DE
+
+        System.out.print("Visits: ");
+        theGraph.dfs();             // depth-first search
+        System.out.println();
     }
 }
