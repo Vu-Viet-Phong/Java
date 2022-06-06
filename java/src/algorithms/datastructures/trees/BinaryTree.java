@@ -205,6 +205,8 @@ public class BinaryTree {
         }
     }
 
+
+
     public void displayTree() {
         Stack globalStack = new Stack();
         globalStack.push(root);
