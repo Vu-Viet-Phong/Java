@@ -1,6 +1,16 @@
 package algorithms.datastructures.graphs;
 
 public class Graph {
+    private static class Vertex {
+        public char label;
+        public boolean wasVisited;
+
+        public Vertex(char label) {
+            this.label = label;
+            wasVisited = false;
+        }
+    }
+
     private final int MAX_VERTS = 20;
     private int nVerts;          // current number of vertices
     private int[][] adjMat;      // adjacency matrix

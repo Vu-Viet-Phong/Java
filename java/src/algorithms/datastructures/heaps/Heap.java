@@ -8,8 +8,13 @@ public class Heap {
             this.data = data; 
         }
 
-        public int getKey() { return data; }
-        public void setKey(int data) { this.data = data; }
+        public int getKey() { 
+            return data; 
+        }
+
+        public void setKey(int data) { 
+            this.data = data; 
+        }
     }
     
     private Node[] heapArray;
@@ -25,10 +30,14 @@ public class Heap {
     public boolean isEmpty() { return currentSize == 0; }
 
     public boolean insert(int key) {
-        if (currentSize == maxSize) return false;
+        if (currentSize == maxSize) {
+            return false;
+        }
+
         Node newNode = new Node(key);
         heapArray[currentSize] = newNode;
         trickleUp(currentSize++);
+        
         return true;   
     }
 
@@ -36,8 +45,8 @@ public class Heap {
         int parent = (index - 1) / 2;
         Node bottom = heapArray[index];
 
-        while (index > 0 && 
-            heapArray[parent].getKey() < bottom.getKey()) {
+        while (index > 0 && bottom.getKey() >
+            heapArray[parent].getKey()) {
             heapArray[index] = heapArray[parent];
             index = parent;
             parent = (parent - 1) / 2;
@@ -61,12 +70,15 @@ public class Heap {
             int rightChild = leftChild + 1;
             
             if (rightChild < currentSize && 
-                heapArray[leftChild].getKey() < heapArray[rightChild].getKey())
+                heapArray[leftChild].getKey() < heapArray[rightChild].getKey()) {
                 largerChild = rightChild;
-            else 
+            } else { 
                 largerChild = leftChild;
+            }
 
-            if (top.getKey() >= heapArray[largerChild].getKey()) break;
+            if (top.getKey() >= heapArray[largerChild].getKey()) {
+                break;
+            }
             heapArray[index] = heapArray[largerChild];
             index = largerChild;
         }
