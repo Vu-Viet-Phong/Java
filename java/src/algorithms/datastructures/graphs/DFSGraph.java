@@ -37,7 +37,7 @@ public class DFSGraph {
 
         for (int row = 0; row < MAX_VERTS; row++) {
             for (int col = 0; col < MAX_VERTS; col++) {
-                adjMatrix[row][col] = 0;
+                adjMatrix[col][row] = 0;
             }
         }
         stack = new Stack();
@@ -54,5 +54,12 @@ public class DFSGraph {
 
     public void displayVertex(int v) {
         System.out.print(vertexList[v].label);
+    }
+
+    /** Depth-first search */
+    public void dfs() {
+        vertexList[0].wasVisited = true;
+        displayVertex(0);
+        stack.push(0);
     }
 }
