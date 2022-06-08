@@ -92,6 +92,7 @@ public class DFSGraph {
         }
     }
 
+    /** Returns an unvisited vertex adj to row */
     public int getAdjUnvisitedVertex(int row) {
         for (int col = 0; col < nVerts; col++) {
             if (adjMatrix[row][col] == 1 
@@ -103,6 +104,20 @@ public class DFSGraph {
     }
 
     public static void main(String[] args) {
+        DFSGraph graph = new DFSGraph();
+
+        graph.addVertex('A'); // 0 (start for dfs)
+        graph.addVertex('B'); // 1
+        graph.addVertex('C'); // 2
+        graph.addVertex('D'); // 3
+        graph.addVertex('E'); // 4
+
+        graph.addEdge(0, 1); // AB
+        graph.addEdge(1, 2); // BC
+        graph.addEdge(0, 3); // AD
+        graph.addEdge(3, 4); // DE
         
+        System.out.println("Visits: ");
+        graph.dfs(); // depth-first search
     }
 }
