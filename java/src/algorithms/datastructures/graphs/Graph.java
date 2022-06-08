@@ -21,4 +21,13 @@ public class Graph {
     public void addVertex(char label) {
         vertexList[nVerts++] = new Vertex(label);
     }
+
+    public void addEdge(int start, int end) {
+        adjMat[start][end] = 1;
+        adjMat[end][start] = 1;
+    }
+
+    public void displayVertex(int v) {
+        System.out.print(vertexList[v].label);
+    }
 }
