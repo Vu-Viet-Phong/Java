@@ -1,21 +1,33 @@
 package algorithms.datastructures.graphs;
 
 public class Graph {
+    private class Vertex {
+        public char label;
+        public boolean wasVisited;
+        
+        public Vertex(char lab) {
+            label = lab;
+            wasVisited = false;
+        }
+    }
+
     private final int MAX_VERTS = 20;
     private int nVerts;
-    private int[][] adjMat;
+    private int[][] adjMatrix;
     private Vertex[] vertexList;
+    private StackX stack;
 
     public Graph() {
         vertexList = new Vertex[MAX_VERTS];
-        adjMat = new int[MAX_VERTS][MAX_VERTS];
+        adjMatrix = new int[MAX_VERTS][MAX_VERTS];
         nVerts = 0;
 
         for (int row = 0; row < MAX_VERTS; row++) {
             for (int col = 0; col < MAX_VERTS; col++) {
-                adjMat[row][col] = 0;
+                adjMatrix[row][col] = 0;
             }
         }
+        stack = new StackX();
     }
 
     public void addVertex(char label) {
@@ -23,11 +35,13 @@ public class Graph {
     }
 
     public void addEdge(int start, int end) {
-        adjMat[start][end] = 1;
-        adjMat[end][start] = 1;
+        adjMatrix[start][end] = 1;
+        adjMatrix[end][start] = 1;
     }
 
     public void displayVertex(int v) {
         System.out.print(vertexList[v].label);
     }
+
+
 }
