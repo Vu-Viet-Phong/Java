@@ -51,7 +51,7 @@ public class DFSGraph {
 
         for (int row = 0; row < MAX_VERTS; row++) {
             for (int col = 0; col < MAX_VERTS; col++) {
-                adjMatrix[col][row] = 0;
+                adjMatrix[row][col] = 0;
             }
         }
         stack = new Stack();
