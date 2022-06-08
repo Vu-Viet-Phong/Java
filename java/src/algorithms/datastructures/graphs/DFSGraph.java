@@ -1,12 +1,36 @@
 package algorithms.datastructures.graphs;
 
-public class Graph {
+public class DFSGraph {
+    private class Stack {
+        private final int SIZE = 20;
+        private int[] st;
+        private int top;
+
+        public Stack() {
+            st = new int[SIZE];
+            top = -1;
+        }
+
+        public void push(int item) {
+            st[++top] = item;
+        }
+
+        public int pop() {
+            return st[top--];
+        }
+
+        public boolean isEmpty() {
+            return top == -1;
+        }
+    }
+
     private final int MAX_VERTS = 20;
     private int nVerts;
     private int[][] adjMatrix;
     private Vertex[] vertexList;
+    private Stack stack;
 
-    public Graph() {
+    public DFSGraph() {
         vertexList = new Vertex[MAX_VERTS];
         adjMatrix = new int[MAX_VERTS][MAX_VERTS];
         nVerts = 0;
@@ -16,6 +40,7 @@ public class Graph {
                 adjMatrix[row][col] = 0;
             }
         }
+        stack = new Stack();
     }
 
     public void addVertex(char label) {
