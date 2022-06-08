@@ -1,6 +1,16 @@
 package algorithms.datastructures.graphs;
 
 public class DFSGraph {
+    private class Vertex {
+        public char label;
+        public boolean wasVisited;
+
+        public Vertex(char label) {
+            this.label = label;
+            wasVisited = false;
+        }
+    }
+
     private class Stack {
         private final int SIZE = 20;
         private int[] st;
@@ -17,6 +27,10 @@ public class DFSGraph {
 
         public int pop() {
             return st[top--];
+        }
+
+        public int peek() {
+            return st[top];
         }
 
         public boolean isEmpty() {
@@ -61,5 +75,34 @@ public class DFSGraph {
         vertexList[0].wasVisited = true;
         displayVertex(0);
         stack.push(0);
+
+        while (!stack.isEmpty()) {
+            int v = getAdjUnvisitedVertex(stack.peek());
+            if (v == -1) {
+                stack.pop();
+            } else {
+                vertexList[v].wasVisited = true;
+                displayVertex(v);
+                stack.push(v);
+            }
+        }
+
+        for (int i = 0; i < nVerts; i++) {
+            vertexList[i].wasVisited = false;
+        }
+    }
+
+    public int getAdjUnvisitedVertex(int row) {
+        for (int col = 0; col < nVerts; col++) {
+            if (adjMatrix[row][col] == 1 
+                && vertexList[col].wasVisited == false) {
+                return col;
+            }
+        }
+        return -1;
+    }
+
+    public static void main(String[] args) {
+        
     }
 }
