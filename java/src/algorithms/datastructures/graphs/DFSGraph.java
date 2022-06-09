@@ -13,24 +13,24 @@ public class DFSGraph {
 
     private class Stack {
         private final int SIZE = 20;
-        private int[] st;
+        private int[] stackArray;
         private int top;
 
         public Stack() {
-            st = new int[SIZE];
+            stackArray = new int[SIZE];
             top = -1;
         }
 
         public void push(int item) {
-            st[++top] = item;
+            stackArray[++top] = item;
         }
 
         public int pop() {
-            return st[top--];
+            return stackArray[top--];
         }
 
         public int peek() {
-            return st[top];
+            return stackArray[top];
         }
 
         public boolean isEmpty() {
