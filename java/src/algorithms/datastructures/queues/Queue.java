@@ -1,8 +1,6 @@
 package algorithms.datastructures.queues;
 
-/**
- * Implements a Queue using an array
- */
+/** Implements a Queue using an array */
 public class Queue {
     private static final int DEFAULT_CAPACITY = 10; 
     private int maxSize;
@@ -25,12 +23,7 @@ public class Queue {
         nItems = 0;
     }
 
-    /**
-     * Inserts an element at the rear of the queue
-     *
-     * @param item element to be added
-     * @return true if the element was added successfully
-     */
+    /** Inserts an element at the rear of the queue */
     public void insert(int item) {
         if (rear == maxSize - 1) {
             rear = -1;
@@ -41,7 +34,6 @@ public class Queue {
 
     /**
      * Remove an element from the front of the queue
-     *
      * @return the new front of the queue
      */
     public int remove() {
@@ -55,40 +47,24 @@ public class Queue {
         return temp;
     }
 
-    /**
-     * Checks what's at the front of the queue
-     *
-     * @return element at the front of the queue
-     */
+    /** Return element at the front of the queue */
     public int peekfront() {
         return queueArray[front];
     }
 
-    /**
-     * Checks what's at the rear of the queue
-     *
-     * @return element at the rear of the queue
-     */
+    /** Return element at the rear of the queue */
     public int peekRear() {
         return queueArray[rear];
     }
 
-    /**
-     * Returns true if the queue is empty
-     *
-     * @return true if the queue is empty
-     */
+    /** Returns true if the queue is empty */
     public boolean isEmpty() {
-        return (nItems == 0);
+        return nItems == 0;
     }
 
-    /**
-     * Returns true if the queue is full
-     *
-     * @return true if the queue is full
-     */
+    /** Returns true if the queue is full */
     public boolean isFull() {
-        return (nItems == maxSize);
+        return nItems == maxSize;
     }
 
     /**

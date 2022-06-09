@@ -1,7 +1,5 @@
 package algorithms.datastructures.graphs;
 
-import javax.print.attribute.standard.Sides;
-
 public class BFSGraph {
     private class Vertex {
         public char label;

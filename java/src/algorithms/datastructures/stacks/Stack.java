@@ -19,10 +19,7 @@ public class Stack {
         top = -1;
     }
 
-    /**
-     * Adds an element to the top of the stack
-     * @param item The element added
-     */
+    /** Adds an element to the top of the stack */
     public void push(int item) {
         if (isFull()) {
             System.out.print("Can't push, stack is full.");
@@ -31,9 +28,9 @@ public class Stack {
         }
     }
 
-    /**
-     * Removes the top element of the stack and returns the value you've removed
-     * @return value popped off the Stack
+    /** 
+     * Removes the top element of the stack 
+     * @returns the removed value 
      */
     public int pop() {
         if (isEmpty()) {
@@ -44,10 +41,7 @@ public class Stack {
         }
     }
 
-    /**
-     * Returns the element at the top of the stack
-     * @return element at the top of the stack
-     */
+    /** Returns the element at the top of the stack */
     public int peek() {
         if (isEmpty()) {
             System.out.println("Can't peek, stack is empty");
@@ -58,18 +52,12 @@ public class Stack {
         
     }
 
-    /**
-     * Returns true if the stack is empty
-     * @return true if the stack is empty
-     */
+    /** Returns true if the stack is empty */
     public boolean isEmpty() {
         return top == -1;
     }
 
-    /**
-     * Returns true if the stack is full                                                                                                                                                                                                                                                                                                               
-     * @return true if the stack is full
-     */
+    /** Returns true if the stack is full */
     public boolean isFull() {
         return top == maxSize - 1;
     }
@@ -84,10 +72,7 @@ public class Stack {
         top = -1;
     }
 
-    /**
-     * Return size of stack
-     * @return size of stack
-     */
+    /** Return size of stack */
     public int getSize() {
         return top + 1;
     }
