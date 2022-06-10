@@ -53,6 +53,12 @@ public class TopologicalSort {
             arr[nVerts - 1] = vertexList[currentVertex].label;
             deleteVertex(currentVertex);
         }
+
+        System.out.print("Topologically sorted order: ");
+        for (int i = 0; i < origin_nVerts; i++) {
+            System.out.print(arr[i]);
+        }
+        System.out.println("");
     }
 
     /* Returns vert with no successors (or -1 if no such verts) */
@@ -90,8 +96,8 @@ public class TopologicalSort {
             for (int col = delVert; col < nVerts - 1; col++) {
                 moveColLeft(col, nVerts - 1);
             }
-            nVerts--;
         }
+        nVerts--;
     }
 
     private void moveRowUp(int row, int length) {
