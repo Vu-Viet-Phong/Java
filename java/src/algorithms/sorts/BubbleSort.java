@@ -51,8 +51,8 @@ public class BubbleSort {
     }
 
     public static void main(String[] args) {
-        int[] arr = {64, 34, 25, 12, 22, 11, 90};
-
+        // int[] arr = {64, 34, 25, 12, 22, 11, 90};
+        int[] arr = {57, 61, 57, 57, 58, 57, 61, 54, 68, 51, 49, 64, 50, 48, 65, 52, 56, 46, 54, 49, 50};
         bubbleSort(arr);
         System.out.println("Sorted array: ");
         display(arr);
