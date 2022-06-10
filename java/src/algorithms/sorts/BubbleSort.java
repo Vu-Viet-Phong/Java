@@ -16,13 +16,11 @@ public class BubbleSort {
     * 
     * @param arr to be sorted
     */
-    public static void bubbleSort(int[] arr) {
-        int n = arr.length;
-
-        for (int i = 1; i < n; i++) {
+    public static void bubbleSort(int[] arr, int length) {
+        for (int i = 1; i < length; i++) {
             boolean swapped = false;
             
-            for (int j = 0; j < n - i; j++) {
+            for (int j = 0; j < length - i; j++) {
                 if (arr[j] > arr[j + 1]) {
                     swap(arr, j, j + 1);
                     swapped = true;
@@ -51,9 +49,9 @@ public class BubbleSort {
     }
 
     public static void main(String[] args) {
-        // int[] arr = {64, 34, 25, 12, 22, 11, 90};
-        int[] arr = {57, 61, 57, 57, 58, 57, 61, 54, 68, 51, 49, 64, 50, 48, 65, 52, 56, 46, 54, 49, 50};
-        bubbleSort(arr);
+        int[] arr = {64, 34, 25, 12, 22, 11, 90};
+        
+        bubbleSort(arr, arr.length);
         System.out.println("Sorted array: ");
         display(arr);
     }
