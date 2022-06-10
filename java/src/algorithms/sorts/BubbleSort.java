@@ -11,11 +11,7 @@ package algorithms.sorts;
  * @link https://en.wikipedia.org/wiki/Bubble_sort
  */
 public class BubbleSort {
-    /**
-    * Bubble sort algorithm implements
-    * 
-    * @param arr to be sorted
-    */
+    /** Bubble sort algorithm implements */
     public static void bubbleSort(int[] arr, int length) {
         for (int i = 1; i < length; i++) {
             boolean swapped = false;
