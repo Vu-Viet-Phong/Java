@@ -11,7 +11,7 @@ package algorithms.sorts;
  * @link https://en.wikipedia.org/wiki/Selection_sort
  */
 public class SelectionSort {
-    /** Selection sort algorithm implements */
+    /* Selection sort algorithm implements */
     public static void selectionSort(int[] arr, int length) {
         for (int i = 0; i < length - 1; i++) {
             int min_idx = i;
