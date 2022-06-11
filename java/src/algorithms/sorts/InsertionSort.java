@@ -14,10 +14,8 @@ public class InsertionSort {
     * 
     * @param arr to be sorted
     */
-    public static void insertionSort(int[] arr) {
-        int n = arr.length;
-        
-        for (int i = 1; i < n; i++) {
+    public static void insertionSort(int[] arr, int length) {
+        for (int i = 1; i < length; i++) {
             int temp = arr[i];
             int j = i - 1;
 
@@ -39,7 +37,7 @@ public class InsertionSort {
     public static void main(String[] args) {
         int[] arr = {64, 34, 25, 12, 22, 11, 90};
         
-        insertionSort(arr);
+        insertionSort(arr, arr.length);
         System.out.println("Sorted array: ");
         display(arr);
     }
