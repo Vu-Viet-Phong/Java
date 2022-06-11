@@ -17,12 +17,12 @@ public class MergeSort {
         int[] arr_L = new int[n1];
         int[] arr_R = new int[n2];
 
-        for (int idx = 0; idx < n1; idx++) {
-            arr_L[idx] = arr[left + idx];
+        for (int i = 0; i < n1; i++) {
+            arr_L[i] = arr[left + i];
         }
 
-        for (int idx = 0; idx < n2; idx++) {
-            arr_R[idx] = arr[mid + 1 + idx];
+        for (int i = 0; i < n2; i++) {
+            arr_R[i] = arr[mid + 1 + i];
         }
 
         int i = 0, j = 0;
