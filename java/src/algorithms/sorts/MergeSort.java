@@ -11,7 +11,7 @@ package algorithms.sorts;
  * @link https://en.wikipedia.org/wiki/Merge_sort
  */
 public class MergeSort {
-    private static void mergeSort(int[] arr, int left, int mid, int right) {
+    private static void merge(int[] arr, int left, int mid, int right) {
         int n1 = mid - left + 1;
         int n2 = right - mid;
         int[] arr_L = new int[n1];
@@ -45,12 +45,12 @@ public class MergeSort {
         }
     }
 
-    static void sort(int[] arr, int left, int right) {
+    static void mergeSort(int[] arr, int left, int right) {
         if (left < right) {
             int mid = left + (right - left) / 2;
-            sort(arr, left, mid);
-            sort(arr, mid + 1, right);
-            mergeSort(arr, left, mid, right);
+            mergeSort(arr, left, mid);
+            mergeSort(arr, mid + 1, right);
+            merge(arr, left, mid, right);
         }
     }
 
@@ -64,7 +64,7 @@ public class MergeSort {
     public static void main(String[] args) {
         int[] arr = {64, 34, 25, 12, 22, 11, 90};
         
-        sort(arr, 0, arr.length - 1);
+        mergeSort(arr, 0, arr.length - 1);
         System.out.println("Sorted array: ");
         display(arr);
     }
