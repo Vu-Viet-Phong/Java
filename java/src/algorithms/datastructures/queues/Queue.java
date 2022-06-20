@@ -2,7 +2,7 @@ package algorithms.datastructures.queues;
 
 /** Implements a Queue using an array */
 public class Queue {
-    private static final int DEFAULT_CAPACITY = 10; 
+    private static final int DEFAULT_CAPACITY = 20; 
     private int maxSize;
     private int[] queueArray;
     private int front;
@@ -10,12 +10,12 @@ public class Queue {
     private int nItems;
 
     /* Initial Stack with default capacity */
-    private Queue() {
+    public Queue() {
         this(DEFAULT_CAPACITY);
     }
 
     /* Initial Stack with input size */
-    private Queue(int size) {
+    public Queue(int size) {
         maxSize = size;
         queueArray = new int[maxSize];
         front = 0;
@@ -48,7 +48,7 @@ public class Queue {
     }
 
     /** Return element at the front of the queue */
-    public int peekfront() {
+    public int peekFront() {
         return queueArray[front];
     }
 
