@@ -1,5 +1,7 @@
 package algorithms.datastructures.graphs;
 
+import algorithms.datastructures.stacks.Stack;
+
 public class Graph {
     private class Vertex {
         public char label;
@@ -8,33 +10,6 @@ public class Graph {
         public Vertex(char label) {
             this.label = label;
             wasVisited = false;
-        }
-    }
-
-    private class Stack {
-        private final int SIZE = 20;
-        private int[] stackArray;
-        private int top;
-
-        public Stack() {
-            stackArray = new int[SIZE];
-            top = -1;
-        }
-
-        public void push(int item) {
-            stackArray[++top] = item;
-        }
-
-        public int pop() {
-            return stackArray[top--];
-        }
-
-        public int peek() {
-            return stackArray[top];
-        }
-
-        public boolean isEmpty() {
-            return top == -1;
         }
     }
 

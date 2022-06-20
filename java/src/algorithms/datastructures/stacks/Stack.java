@@ -2,7 +2,7 @@ package algorithms.datastructures.stacks;
 
 /** Implements a Stack using an array */
 public class Stack {
-    private static final int DEFAULT_CAPACITY = 10;
+    private static final int DEFAULT_CAPACITY = 20;
     private int maxSize;
     private int[] stackArray;
     private int top;
@@ -22,7 +22,7 @@ public class Stack {
     /** Adds an element to the top of the stack */
     public void push(int item) {
         if (isFull()) {
-            System.out.print("Can't push, stack is full.");
+            System.out.println("Can't push, stack is full.");
         } else {
             stackArray[++top] = item;
         }
