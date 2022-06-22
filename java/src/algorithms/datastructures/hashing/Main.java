@@ -4,8 +4,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-import algorithms.datastructures.hashing.HashTable.Node;
-
 public class Main {
     public static String getString() throws IOException {
         InputStreamReader isr = new InputStreamReader(System.in);
@@ -25,7 +23,7 @@ public class Main {
     }
 
     public static void hashTableApp() throws IOException {
-        Node dataItem;
+        DataItem dataItem;
         int aKey, size, n, keysPerCell;
 
         System.out.print("Enter size of hash table: ");
@@ -38,7 +36,7 @@ public class Main {
   
         for (int idx = 0; idx < n; idx++) {
             aKey = (int) (Math.random() * keysPerCell * size);
-            dataItem = new Node(aKey);
+            dataItem = new DataItem(aKey);
             hashTable.insert(dataItem);
         }
   
@@ -54,7 +52,7 @@ public class Main {
                 case 'i':
                     System.out.print("Enter key value to insert: ");
                     aKey = getInt();
-                    dataItem = new Node(aKey);
+                    dataItem = new DataItem(aKey);
                     hashTable.insert(dataItem);
                     break;
                 case 'd':

@@ -1,34 +1,23 @@
 package algorithms.datastructures.hashing;
 
 public class HashTable {
-    public static class Node {
-        private int key;
-
-        public Node(int data) {
-            key = data;
-        }
-
-        public int getKey() {
-            return key;
-        }
-    }
-
-    private Node[] hashArray;
+    private DataItem[] hashArray;
     private int hashSize;
-    private Node nonItem; 
+    private DataItem nonItem; 
 
     public HashTable(int size) {
         hashSize = size;
-        hashArray = new Node[hashSize];
-        nonItem = new Node(-1); 
+        hashArray = new DataItem[hashSize];
+        nonItem = new DataItem(-1); 
     }
     
     public int hashFunc(int key) {
         return key % hashSize;
     }
 
-    public Node find(int key) {
+    public DataItem find(int key) {
         int hashValue = hashFunc(key);
+
         while (hashArray[hashValue] != null) {
             if (hashArray[hashValue].getKey() == key) {
                 return hashArray[hashValue];
@@ -36,10 +25,11 @@ public class HashTable {
             ++hashValue;
             hashValue %= hashSize;
         }
+        
         return null;
     } 
 
-    public void insert(Node item) {
+    public void insert(DataItem item) {
         int key = item.getKey();
         int hashValue = hashFunc(key);
         while (hashArray[hashValue] != null &&
@@ -50,11 +40,11 @@ public class HashTable {
         hashArray[hashValue] = item;
     }
 
-    public Node delete(int key) {
+    public DataItem delete(int key) {
         int hashValue = hashFunc(key);
         while (hashArray[hashValue] != null) {
             if (hashArray[hashValue].getKey() == key) {
-                Node temp = hashArray[hashValue];
+                DataItem temp = hashArray[hashValue];
                 hashArray[hashValue] = nonItem;
                 return temp;
             }

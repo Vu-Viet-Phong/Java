@@ -13,22 +13,17 @@ package algorithms.sorts;
  * @link https://en.wikipedia.org/wiki/Shellsort
  */
 public class ShellSort {
-    /**
-    * Shell sort algorithm implements
-    * 
-    * @param arr to be sorted
-    */
-    public static void shellSort(int[] arr) {
-        int n = arr.length;
+    /** Shell sort algorithm implements */
+    public static void shellSort(int[] arr, int length) {
         int gap = 1;
 
         /* Calculate gap for optimization purpose */
-        while (gap < n / 3) {
+        while (gap < length / 3) {
             gap = gap * 3 + 1; // (1, 4, 13, 40, 121, ...)
         }
 
         while (gap > 0) { // decreasing gap, until gap = 1
-            for (int i = gap; i < n; i++) {
+            for (int i = gap; i < length; i++) {
                 int temp = arr[i];
                 int j;
                 
@@ -51,7 +46,7 @@ public class ShellSort {
     public static void main(String[] args) {
         int[] arr = {64, 34, 25, 12, 22, 11, 90};
 
-        shellSort(arr);
+        shellSort(arr, arr.length);
         System.out.println("Sorted array: ");
         display(arr);
     }

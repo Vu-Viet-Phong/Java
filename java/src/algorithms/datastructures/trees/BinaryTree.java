@@ -7,9 +7,9 @@ import java.io.InputStreamReader;
 
 public class BinaryTree {
     private static class Node {
-        public int data;
-        public Node left;
-        public Node right;
+        private int data;
+        private Node left;
+        private Node right;
         
         public void displayNode() {
             System.out.print("(" + data + "}");
@@ -40,10 +40,7 @@ public class BinaryTree {
         return current;
     }
 
-    /**
-     * 
-     * @param value
-     */
+    /** Insert node with given value */
     public void insert(int value) {
         Node newNode = new Node();
         newNode.data = value;
@@ -73,11 +70,7 @@ public class BinaryTree {
         }
     }
 
-    /**
-     * Delete node with given key
-     * @param key given key
-     * @return
-     */
+    /** Delete node with given key */
     public boolean delete(int key) {
         Node current = root;
         Node parent = root;
@@ -141,9 +134,7 @@ public class BinaryTree {
 
     /**
      * Returns node with next-highest value after delNode
-     * goes to right child, then right child's left descendents
-     * @param delNode
-     * @return
+     * goes to right child, then right child's left descendents.
      */
     private Node getSuccessor(Node delNode) {
         Node successorParent = delNode;
@@ -333,7 +324,7 @@ public class BinaryTree {
                     break;
                 default:
                     System.out.print("Invalid entry\n");
-            } // end switch
-        } // end while
-    } // end main
-} // end class
+            }
+        }
+    }
+} 
