@@ -2,8 +2,8 @@ package algorithms.datastructures.hashing;
 
 public class HashTable {
     private DataItem[] hashArray;
+    private DataItem nonItem;
     private int hashSize;
-    private DataItem nonItem; 
 
     public HashTable(int size) {
         hashSize = size;
@@ -56,9 +56,9 @@ public class HashTable {
 
     public void displayTable() {
         System.out.print("Table: ");
-        for (int idx = 0; idx < hashSize; idx++) {
-            if (hashArray[idx] != null) {
-                System.out.print(hashArray[idx].getKey() + " ");
+        for (int i = 0; i < hashSize; i++) {
+            if (hashArray[i] != null) {
+                System.out.print(hashArray[i].getKey() + " ");
             } else {
                 System.out.print("** ");
             }
