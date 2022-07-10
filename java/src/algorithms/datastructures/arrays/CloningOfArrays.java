@@ -1,5 +1,6 @@
 package algorithms.datastructures.arrays;
 
+/* Java program to demonstrate cloning of one-dimensional arrays */
 public class CloningOfArrays {
     public static void main(String[] args) {
         int[] intArr = {1, 2, 3};
