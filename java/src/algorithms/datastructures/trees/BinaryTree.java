@@ -113,9 +113,9 @@ public class BinaryTree {
             if (current == root) {
                 root = current.right;
             } else if (isLeftChild) {
-                parent.right = current.right;
-            } else {
                 parent.left = current.right;
+            } else {
+                parent.right = current.right;
             }
         } else { // two children, so replace with inorder successor
             Node successor = getSuccessor(current);
@@ -196,8 +196,6 @@ public class BinaryTree {
         }
     }
 
-
-
     public void displayTree() {
         Stack globalStack = new Stack();
         globalStack.push(root);
@@ -267,15 +265,22 @@ public class BinaryTree {
         int value;
         BinaryTree bt = new BinaryTree();
 
-        bt.insert(40);
-        bt.insert(15);
-        bt.insert(29);
-        bt.insert(32);
-        bt.insert(62);
-        bt.insert(15);
+        bt.insert(45);
         bt.insert(30);
-        bt.insert(100);
-        bt.insert(64);
+        bt.insert(80);
+        bt.insert(20);
+        bt.insert(35);
+        bt.insert(70);
+        bt.insert(90);
+        bt.insert(25);
+        bt.insert(21);
+        bt.insert(39);
+        bt.insert(37);
+        bt.insert(38);
+        bt.insert(75);
+        bt.insert(78);
+        bt.insert(76);
+        bt.insert(90);
 
         while (true) {
             System.out.print("Enter first letter of show, ");
