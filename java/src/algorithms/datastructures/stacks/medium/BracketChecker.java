@@ -3,8 +3,7 @@ package algorithms.datastructures.stacks.medium;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-
-import algorithms.datastructures.stacks.Stack;
+import java.util.Stack;
 
 public class BracketChecker {
     private String input;
