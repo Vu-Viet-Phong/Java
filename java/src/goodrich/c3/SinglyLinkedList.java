@@ -53,7 +53,8 @@ public class SinglyLinkedList<E> {
 
     public void addFirst(E element) {
         head = new Node<>(element, head);
-        if (isEmpty()) {
+
+        if (size == 0) {
             tail = head;
         }
         size++;
