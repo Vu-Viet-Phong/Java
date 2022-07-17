@@ -34,10 +34,12 @@ public class SinglyLinkedList<E> {
 
     public SinglyLinkedList() {}
 
+    /** Returns the number of elements in the linked list. */
     public int size() {
         return size;
     }
 
+    /** Tests whether the linked list is empty. */
     public boolean isEmpty() {
         return size == 0;
     }
