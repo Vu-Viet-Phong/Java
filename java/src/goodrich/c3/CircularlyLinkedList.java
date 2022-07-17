@@ -1,5 +1,10 @@
 package goodrich.c3;
 
+/**
+ * A basic circularly linked list implementation. 
+ * 
+ * @link https://en.wikipedia.org/wiki/Linked_list
+ */
 public class CircularlyLinkedList<E> {
     private static class Node<E> {
         private E element;
