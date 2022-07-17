@@ -9,11 +9,7 @@ package algorithms.sorts;
  * @link https://en.wikipedia.org/wiki/Insertion_sort
  */
 public class InsertionSort {
-    /**
-    * Insertion sort algorithm implements
-    * 
-    * @param arr to be sorted
-    */
+    /** Insertion sort algorithm implements */
     public static void insertionSort(int[] arr, int length) {
         for (int i = 1; i < length; i++) {
             int temp = arr[i];
