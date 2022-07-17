@@ -1,5 +1,10 @@
 package goodrich.c3;
 
+/**
+ * A basic doubly linked list implementation. 
+ * 
+ * @link https://en.wikipedia.org/wiki/Doubly_linked_list
+ */
 public class DoublyLinkedList<E> {
     private static class Node<E> {
         private E element;          // reference to the element stored at this node
