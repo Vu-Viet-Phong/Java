@@ -24,7 +24,7 @@ public class CircularlyLinkedList<E> {
     }
 
     private Node<E> tail = null;
-    private int size = 0;
+    private int size = 0; // number of nodes in the list
 
     public CircularlyLinkedList() {}
 
@@ -36,6 +36,7 @@ public class CircularlyLinkedList<E> {
         return size == 0; 
     }
 
+    /** Returns (but does not remove) the first element. */
     public E first() {
         if (isEmpty()) {
             return null;
@@ -43,6 +44,7 @@ public class CircularlyLinkedList<E> {
         return tail.getNext().getElement();
     }
 
+    /** Returns (but does not remove) the last element. */
     public E last() {
         if (isEmpty()) {
             return null;
@@ -50,17 +52,19 @@ public class CircularlyLinkedList<E> {
         return tail.getElement();
     }
 
-    /**
-     * Rotate the first element to back of the list.
-     */
+    /** Rotate the first element to back of the list. */
     public void rotate() {
         if (tail != null) {
             tail = tail.getNext();
         }
     }
 
-    
+    /** Adds element to the front of the list. */
     public void addFirst(E element) {
+        if (element == null) {
+            throw new NullPointerException("Cannot add null element to the list");
+        }
+
         if (size == 0) {
             tail = new Node<>(element, tail.getNext());
             tail.setNext(tail);
@@ -69,5 +73,29 @@ public class CircularlyLinkedList<E> {
             tail.setNext(newest);
         }
         size++;
+    }
+
+    /** Adds element e to the end of the list.  */
+    public void addLast(E element) {
+        addFirst(element);
+        tail = tail.getNext();
+    }
+
+    /** Removes and returns the first element. */
+    public E removeFirst() {
+        if (isEmpty()) {
+            return null;
+        }
+
+        Node<E> head = tail.getNext();
+        
+        if (head == tail) {
+            tail = null;
+        } else {
+            tail.setNext(head.getNext());
+        }
+        size--;
+
+        return head.getElement();
     }
 }
