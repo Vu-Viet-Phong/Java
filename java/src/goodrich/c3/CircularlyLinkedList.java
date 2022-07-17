@@ -3,7 +3,7 @@ package goodrich.c3;
 /**
  * A basic circularly linked list implementation. 
  * 
- * @link https://en.wikipedia.org/wiki/Linked_list
+ * @link https://en.wikipedia.org/wiki/Linked_list#Singly_linked_list
  */
 public class CircularlyLinkedList<E> {
     private static class Node<E> {

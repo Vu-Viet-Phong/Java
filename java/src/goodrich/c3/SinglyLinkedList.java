@@ -1,5 +1,10 @@
 package goodrich.c3;
 
+/**
+ * A basic singly linked list implementation. 
+ * 
+ * @link https://en.wikipedia.org/wiki/Linked_list#Singly_linked_list
+ */
 public class SinglyLinkedList<E> {
     private static class Node<E> {
         private E element;
