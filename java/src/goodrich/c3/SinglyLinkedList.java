@@ -25,7 +25,7 @@ public class SinglyLinkedList<E> {
 
     private Node<E> head = null;
     private Node<E> tail = null;
-    private int size = 0;
+    private int size = 0; // number of nodes in the list
 
     public SinglyLinkedList() {}
 
@@ -37,6 +37,7 @@ public class SinglyLinkedList<E> {
         return size == 0;
     }
 
+    /** Returns (but does not remove) the first element. */
     public E first() {
         if (isEmpty()) { 
             return null;
@@ -44,6 +45,7 @@ public class SinglyLinkedList<E> {
         return head.getElement();
     }
 
+    /** Returns (but does not remove) the last element. */
     public E last() {
         if (isEmpty()) {
             return null;
@@ -51,6 +53,7 @@ public class SinglyLinkedList<E> {
         return tail.getElement();
     }
 
+    /** Adds element to the front of the list. */
     public void addFirst(E element) {
         head = new Node<>(element, head);
 
@@ -60,6 +63,7 @@ public class SinglyLinkedList<E> {
         size++;
     }
 
+    /** Adds element e to the end of the list. */
     public void addLast(E element) {
         Node<E> newest = new Node<>(element, null);
 
@@ -72,6 +76,7 @@ public class SinglyLinkedList<E> {
         size++;
     }
 
+    /** Removes and returns the first element. */
     public E removeFirst() {
         if (isEmpty()) {
             return null;
