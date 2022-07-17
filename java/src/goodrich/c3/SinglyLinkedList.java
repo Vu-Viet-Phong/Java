@@ -51,16 +51,16 @@ public class SinglyLinkedList<E> {
         return tail.getElement();
     }
 
-    public void addFirst(E e) {
-        head = new Node<>(e, head);
-        if (size == 0) {
+    public void addFirst(E element) {
+        head = new Node<>(element, head);
+        if (isEmpty()) {
             tail = head;
         }
         size++;
     }
 
-    public void addLast(E e) {
-        Node<E> newest = new Node<>(e, null);
+    public void addLast(E element) {
+        Node<E> newest = new Node<>(element, null);
 
         if (isEmpty()) {
             head = newest;
