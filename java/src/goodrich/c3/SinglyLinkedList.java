@@ -99,4 +99,24 @@ public class SinglyLinkedList<E> {
 
         return answer;
     }
+
+    public SinglyLinkedList<E> clone () throws CloneNotSupportedException {
+        SinglyLinkedList<E> other = (SinglyLinkedList<E>) super.clone(); // safe cast
+
+        if (size > 0) {
+            other.head = new Node<>(head.getElement(), null);
+            Node<E> walk = head.getNext();
+            Node<E> otherTail = other.head;
+
+            while (walk != null) {
+                Node<E> newest = new Node<>(walk.getElement(), null);
+                otherTail.setNext(newest); // link previous node to this one
+                otherTail = newest;
+                walk = walk.getNext();
+            }
+
+        }
+        
+        return other;
+    }
 }
