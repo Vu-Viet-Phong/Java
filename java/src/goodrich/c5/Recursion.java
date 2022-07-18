@@ -4,6 +4,8 @@ public class Recursion {
             throw new IllegalArgumentException();
         } else if {
             return 1;
+        } else {
+            return n * factorial(n - 1);
         }
     }
 }
