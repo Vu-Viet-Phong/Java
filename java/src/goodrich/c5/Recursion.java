@@ -3,7 +3,7 @@ public class Recursion {
         if (n < 0)  {
             throw new IllegalArgumentException();
         } else if {
-            return 1;
+            return 1; // base case
         } else {
             return n * factorial(n - 1); // recursive case
         }
