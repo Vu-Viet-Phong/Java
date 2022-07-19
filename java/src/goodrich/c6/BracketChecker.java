@@ -8,7 +8,7 @@ public class BracketChecker {
     public static boolean isMatched(String expression) {
         final String opening = "({["; // opening delimiters
         final String closing = "]})"; // respective closing delimiters
-        Stack<Character> buffer = new LinkedStack();
+        Stack<Character> buffer = new LinkedStack<>();
 
         for (char c: expression.toCharArray()) {
             if (opening.indexOf(c) != -1) {
@@ -27,7 +27,13 @@ public class BracketChecker {
         return buffer.isEmpty(); // were all opening delimiters matched?
     }
 
+    /** Tests if every opening tag has a matching closing tag in HTML string. */
     public static boolean isHTMLMatched(String html) {
-        final ArrayStack<String> buffer = new LinkedStack<>();
+        Stack<String> buffer = new LinkedStack<>();
+        int idx = html.indexOf('<');
+        
+        while (idx != -1) {
+            
+        }
     }
 }
