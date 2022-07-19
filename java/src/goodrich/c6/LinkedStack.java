@@ -2,7 +2,7 @@ package goodrich.c6;
 
 import goodrich.c3.SinglyLinkedList;
 
-public class LinkedStack<E> {
+public class LinkedStack<E> implements Stack<E> {
     private SinglyLinkedList<E> list; // an empty list
 
     public LinkedStack() {
