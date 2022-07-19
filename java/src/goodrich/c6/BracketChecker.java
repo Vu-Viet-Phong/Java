@@ -33,7 +33,28 @@ public class BracketChecker {
         int idx = html.indexOf('<');
         
         while (idx != -1) {
+            int idx2 = html.indexOf('>', idx + 1);
+
+            if (idx2 == -1) {
+                return false;
+            }
+
+            String tag = html.substring(idx + 1, idx2);
             
+            if (!tag.startsWith("/")) {
+                buffer.push(tag);
+            } else {
+                if (buffer.isEmpty()) {
+                    return false;
+                }
+
+                if (!tag.substring(1).equals(buffer.pop())) {
+                    return false;
+                }
+            }
+            idx2 = html.indexOf('<', idx2 + 1);
         }
+
+        return buffer.isEmpty();
     }
 }
