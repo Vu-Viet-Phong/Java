@@ -1,5 +1,7 @@
 package iu.dsa.sach.labs.lab02;
 
+import iu.dsa.sach.labs.lab02.geom.Point2D;
+
 public class SpaceMapping {
     private int minDevX, maxDevX;
     private int minDevY, maxDevY;

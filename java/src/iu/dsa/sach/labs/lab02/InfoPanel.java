@@ -20,11 +20,11 @@ public class InfoPanel extends JPanel implements ComponentListener {
     private JScrollPane textScroller;
 
     public InfoPanel() {
-        //Create text area and set its properties.
+        // Create text area and set its properties.
         this.textArea = new JTextArea();
         this.textArea.setEditable(false);
         
-        //Create ScollPane to make text scrollable.
+        // Create ScollPane to make text scrollable.
         textScroller = new JScrollPane(this.textArea);
         textScroller.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
         

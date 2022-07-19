@@ -1,5 +1,7 @@
 package iu.dsa.sach.labs.lab02;
 
+import iu.dsa.sach.labs.lab02.geom.Point2D;
+
 public class Viewport {
     // Data fields
     private double xMin, xMax;
