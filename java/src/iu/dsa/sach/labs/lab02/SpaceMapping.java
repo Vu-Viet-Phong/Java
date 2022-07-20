@@ -13,19 +13,11 @@ public class SpaceMapping {
         this.maxDevX = 800;
         this.minDevY = 0;
         this.maxDevY = 600;
-        
+
         this.minLogX = 0;
         this.maxLogX = 1.0;
         this.minLogY = 0;
         this.maxLogY = 1.0;
-    }
-
-    public double wL() {
-        return this.maxLogX - this.minLogX;
-    }
-
-    public double hL() {
-        return this.maxLogY - this.minLogY;
     }
 
     public double wD() {
@@ -34,6 +26,14 @@ public class SpaceMapping {
 
     public double hD() {
         return this.maxDevY - this.minDevY;
+    }
+
+    public double wL() {
+        return this.maxLogX - this.minLogX;
+    }
+
+    public double hL() {
+        return this.maxLogY - this.minLogY;
     }
 
     public double sxL2D() {
