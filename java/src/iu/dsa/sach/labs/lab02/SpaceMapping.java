@@ -13,7 +13,7 @@ public class SpaceMapping {
         this.maxDevX = 800;
         this.minDevY = 0;
         this.maxDevY = 600;
-
+        
         this.minLogX = 0;
         this.maxLogX = 1.0;
         this.minLogY = 0;
@@ -45,19 +45,19 @@ public class SpaceMapping {
     public double syL2D() {
         double hL = this.maxLogY - this.minLogY;
         double hD = this.maxDevY - this.minDevY;
-        return hD/hL;
+        return hD / hL;
     }
     
     public double sxD2L() {
         double wL = this.maxLogX - this.minLogX;
         double wD = this.maxDevX - this.minDevX;
-        return wL/wD;
+        return wL / wD;
     }
 
     public double syD2L() {
         double hL = this.maxLogY - this.minLogY;
         double hD = this.maxDevY - this.minDevY;
-        return hL/hD;
+        return hL / hD;
     }
 
     public Point2D oLinD() {
@@ -67,7 +67,7 @@ public class SpaceMapping {
         );
     }
     
-    public double step(){
+    public double step() {
         return 5.0 * Math.min(this.sxD2L(), this.syD2L());
     }
 
@@ -93,14 +93,14 @@ public class SpaceMapping {
     }
 
     public Point2D device2Logic(Point2D devPoint){
-        return device2Logic((int)devPoint.getX(), (int)devPoint.getY());
+        return device2Logic((int) devPoint.getX(), (int) devPoint.getY());
     }
 
     public Point2D device2Logic(int devX, int devY){
         double txD2L = this.oLinD().getX() * sxD2L();
         double tyD2L = - this.oLinD().getY() * syD2L(); // "-" means flipped
-        double logX = sxD2L()*devX - txD2L;
-        double logY = -syD2L()*devY - tyD2L;
+        double logX = sxD2L() * devX - txD2L;
+        double logY = -syD2L() * devY - tyD2L;
         return new Point2D(logX, logY);
     }
 
@@ -111,8 +111,8 @@ public class SpaceMapping {
     public Point2D logic2Device(double logX, double logY){
         double txL2D = this.oLinD().getX();
         double tyL2D = -this.oLinD().getY();
-        double devX = sxL2D()*logX + txL2D;
-        double devY = -syL2D()*logY - tyL2D;
+        double devX = sxL2D() * logX + txL2D;
+        double devY = -syL2D() * logY - tyL2D;
         return new Point2D(devX, devY);
     }
 }
