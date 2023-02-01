@@ -1,6 +1,6 @@
 package dsa.dsaRL.c4;
 
-/** Implements a Stack using an array. */
+/** Implements a Stack using an array */
 class Stack {
     private static final int DEFAULT_CAPACITY = 10;
     private int maxSize;
