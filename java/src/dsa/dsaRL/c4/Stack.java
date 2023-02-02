@@ -20,11 +20,11 @@ class Stack {
     }
 
     /** Adds an element to the top of the stack */
-    public void push(long value) {
+    public void push(long item) {
         if (isFull()) {
             System.out.print("Can't push, stack is full.");
         } else {
-            stackArray[++top] = value;
+            stackArray[++top] = item;
         }
     }
 
