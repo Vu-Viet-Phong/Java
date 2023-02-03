@@ -1,5 +1,6 @@
 package dsa.dsaRL.c4;
 
+/** Implements a Priority Queue using an array */
 public class PriorityQueue {
     private int maxSize;
     private int[] queueArray;
