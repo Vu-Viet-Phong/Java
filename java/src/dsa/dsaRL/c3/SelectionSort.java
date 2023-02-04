@@ -1,0 +1,64 @@
+package dsa.dsaRL.c3;
+
+class SelectionSort {
+    private long[] arr;
+    private int n; // number of data elements
+    
+    public SelectionSort(int maxSize) {
+        arr = new long[maxSize];
+        n = 0;
+    }
+
+    /** Inserts element into array */
+    public void insert(long value) {
+        arr[n] = value;
+        n++;
+    }
+
+    /** Selection sort algorithm implements */
+    public void selectionSort() {
+        for (int i = 0; i < n - 1; i++) {
+            int min = i;
+            for (int j = i + 1; j < n; j++) {
+                if (arr[j] < arr[min]) {
+                    min = j;
+                }
+            }
+            swap(i, min);
+        }
+    }
+
+    /* Swaps two elements */
+    private void swap(int a, int b) {
+        long temp = arr[a];
+        arr[a] = arr[b];
+        arr[b] = temp;
+    }    
+
+    /* Prints the array */
+    public void display() {
+        for (int i = 0; i < n; i++) {
+            System.out.print(arr[i] + " ");
+        }
+        System.out.println("");
+    }
+
+    public static void main(String[] args) {
+        SelectionSort arr = new SelectionSort(10);
+
+        arr.insert(77);
+        arr.insert(99);
+        arr.insert(44);
+        arr.insert(55);
+        arr.insert(22);
+        arr.insert(88);
+        arr.insert(11);
+        arr.insert(00);
+        arr.insert(66);
+        arr.insert(33);
+
+        arr.display();
+        arr.selectionSort();
+        arr.display();
+    }
+}
