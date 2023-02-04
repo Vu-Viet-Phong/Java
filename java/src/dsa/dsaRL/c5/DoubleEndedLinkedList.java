@@ -16,7 +16,7 @@ public class DoubleEndedLinkedList {
     }
 
     /** Insert at front of list */
-    public void insertFirst(int value) {
+    public void insertFirst(long value) {
         Link newLink = new Link(value);
 
         if (isEmpty()) {
@@ -27,7 +27,7 @@ public class DoubleEndedLinkedList {
     }
 
     /** Insert at end of list */
-    public void insertLast(int value) {
+    public void insertLast(long value) {
         Link newLink = new Link(value);
 
         if (isEmpty()) {
@@ -39,8 +39,8 @@ public class DoubleEndedLinkedList {
     }
 
     /** Delete first link */
-    public int deleteFirst() {
-        int temp = first.data;
+    public long deleteFirst() {
+        long temp = first.data;
         
         if (first.next == null) {
             last = null;
