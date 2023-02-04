@@ -57,21 +57,6 @@ class LinkedList {
         return temp;
     }
 
-    /** Find link with given key */
-    public Node find(long key) {
-        Node current = first;
-
-        while (current.data != key) {
-            if (current.next == null) {
-                return null;
-            } else {
-                current = current.next;
-            }
-        }
-
-        return current;
-    }
-
     /** Delete link with given key */
     public Node delete(long key) {
         Node current = first;
@@ -92,6 +77,21 @@ class LinkedList {
             previous.next = current.next;
         }
         
+        return current;
+    }
+
+    /** Find link with given key */
+    public Node find(long key) {
+        Node current = first;
+
+        while (current.data != key) {
+            if (current.next == null) {
+                return null;
+            } else {
+                current = current.next;
+            }
+        }
+
         return current;
     }
 
