@@ -19,13 +19,6 @@ class LinkedList {
         first = newNode;
     }
 
-    /** Delete first item */
-    public Node deleteFirst() {
-        Node temp = first;
-        first = first.next;
-        return temp;
-    }
-
     /** Insert a node after a given node */
     public void insertAfter(Node prevNode, long value) {
         if (prevNode == null) {
@@ -55,6 +48,13 @@ class LinkedList {
         last.next = newNode;
 
         return;
+    }
+    
+    /** Delete first item */
+    public Node deleteFirst() {
+        Node temp = first;
+        first = first.next;
+        return temp;
     }
 
     /** Find link with given key */
