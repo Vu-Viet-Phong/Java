@@ -3,7 +3,7 @@ package dsa.practices.linkedlist;
 class LinkedList {
     private Node first;
 
-    public SinglyLinkedList() {
+    public LinkedList() {
         first = null;
     }
 
