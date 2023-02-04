@@ -1,6 +1,6 @@
 package dsa.dsaRL.c5;
 
-/** Implements a LinkedList */
+/** Implements a Linked List */
 public class LinkedList {
     private Link first;
 
@@ -14,7 +14,7 @@ public class LinkedList {
     }
 
     /** Insert at start of list */
-    public void insertFirst(int value) {
+    public void insertFirst(long value) {
         Link newLink = new Link(value);
         newLink.next = first;
         first = newLink;
@@ -28,8 +28,9 @@ public class LinkedList {
     }
 
     /** Find link with given key */
-    public Link find(int key) {
+    public Link find(long key) {
         Link current = first;
+
         while (current.data != key) {
             if (current.next == null) {
                 return null;
@@ -37,11 +38,12 @@ public class LinkedList {
                 current = current.next;
             }
         }
+
         return current;
     }
 
     /** Delete link with given key */
-    public Link delete(int key) {
+    public Link delete(long key) {
         Link current = first;
         Link previous = first;
 
