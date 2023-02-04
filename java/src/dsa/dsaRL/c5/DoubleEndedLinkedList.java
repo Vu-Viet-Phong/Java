@@ -26,6 +26,7 @@ public class DoubleEndedLinkedList {
         first = newLink;
     }
 
+    /** Insert at end of list */
     public void insertLast(int value) {
         Link newLink = new Link(value);
 
@@ -35,5 +36,46 @@ public class DoubleEndedLinkedList {
             last.next = newLink;
         }
         last = newLink;
+    }
+
+    /** Delete first link */
+    public int deleteFirst() {
+        int temp = first.data;
+        
+        if (first.next == null) {
+            last = null;
+        }
+        first = first.next;
+        
+        return temp;
+    }
+
+    public void displayList() {
+        Link current = first;
+        
+        System.out.print("List (first-->last): ");
+        while (current != null) {
+            current.displayLink(); 
+            current = current.next;
+        }
+        System.out.println("");
+    }
+
+    public static void main(String[] args) {
+        DoubleEndedLinkedList dell = new DoubleEndedLinkedList();
+
+        dell.insertFirst(22);
+        dell.insertFirst(44);
+        dell.insertFirst(66);
+        dell.displayList();
+
+        dell.insertLast(11);
+        dell.insertLast(33);
+        dell.insertLast(55);
+        dell.displayList();
+        
+        dell.deleteFirst();
+        dell.deleteFirst();
+        dell.displayList();
     }
 }
