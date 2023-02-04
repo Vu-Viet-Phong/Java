@@ -1,10 +1,10 @@
 package dsa.dsaRL.c5;
 
 class Link {
-    public int data;
+    public long data;
     public Link next;
 
-    public Link(int value) {
+    public Link(long value) {
         data = value;
     }
 
