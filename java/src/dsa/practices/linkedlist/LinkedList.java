@@ -1,7 +1,7 @@
 package dsa.practices.linkedlist;
 
-public class SinglyLinkedList {
-    private Link first;
+class LinkedList {
+    private Node first;
 
     public SinglyLinkedList() {
         first = null;
@@ -14,32 +14,52 @@ public class SinglyLinkedList {
 
     /** Insert at start of list */
     public void insertFirst(long value) {
-        Link newLink = new Link(value);
-        newLink.next = first;
-        first = newLink;
+        Node newNode = new Node(value);
+        newNode.next = first;
+        first = newNode;
     }
 
     /** Delete first item */
-    public Link deleteFirst() {
-        Link temp = first;
+    public Node deleteFirst() {
+        Node temp = first;
         first = first.next;
         return temp;
     }
 
     /** Insert a node after a given node */
-    public void insertAfter(Link prev_link, long value) {
-        if (prev_link == null) {
+    public void insertAfter(Node prevNode, long value) {
+        if (prevNode == null) {
             System.out.println(
                 "The given previous node cannot be null");
+            return;
         }
-        Link newLink = new Link(value);
-        newLink.next = prev_link.next;
-        prev_link.next = newLink;
+        Node newNode = new Node(value);
+        newNode.next = prevNode.next;
+        prevNode.next = newNode;
+    }
+
+    public void insertLast(long value) {
+        Node newNode = new Node(value);
+
+        if (first == null) {
+            first = new Node(value);
+            return;
+        }
+        newNode.next = null;
+
+        Node last = first;
+
+        while (last.next != null) {
+            last = last.next;
+        }
+        last.next = newNode;
+
+        return;
     }
 
     /** Find link with given key */
-    public Link find(long key) {
-        Link current = first;
+    public Node find(long key) {
+        Node current = first;
 
         while (current.data != key) {
             if (current.next == null) {
@@ -53,9 +73,9 @@ public class SinglyLinkedList {
     }
 
     /** Delete link with given key */
-    public Link delete(long key) {
-        Link current = first;
-        Link previous = first;
+    public Node delete(long key) {
+        Node current = first;
+        Node previous = first;
 
         while (current.data != key) {
             if (current.next == null) {
@@ -76,11 +96,11 @@ public class SinglyLinkedList {
     }
 
     public void displayList() {
-        Link current = first;
+        Node current = first;
         
         System.out.print("List (first-->last): ");
         while (current != null) {
-            current.displayLink(); 
+            current.displayNode(); 
             current = current.next;
         }
         System.out.println("");
